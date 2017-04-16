@@ -1,0 +1,359 @@
+﻿
+@{
+    ViewBag.Title = "Reportes";
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var OpcionesDevocional = {
+            chart: {
+                renderTo: 'container',
+                type: 'line'
+            },
+            title: {
+                text: 'Asistencia al culto dominical'
+            },
+            subtitle: {
+                text: 'Ministerio de estadística'
+            },
+            xAxis: {
+                categories: [{}],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Cantidad (personas)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                },
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Personas',
+                data: []
+            }]
+        };
+
+        var OpcionesActividad = {
+            chart: {
+                renderTo: 'container2',
+                type: 'line'
+            },
+            title: {
+                text: 'Asistencia al culto de oracion'
+            },
+            subtitle: {
+                text: 'Ministerio de estadística'
+            },
+            xAxis: {
+                categories: [],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Cantidad (personas)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                },
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Personas',
+                data: []
+            }]
+        };
+
+        var OpcionesVigilia = {
+            chart: {
+                renderTo: 'container3',
+                type: 'line'
+            },
+            title: {
+                text: 'Asistencia a Vigilias'
+            },
+            subtitle: {
+                text: 'Ministerio de estadística'
+            },
+            xAxis: {
+                categories: [
+
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Cantidad (personas)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                },
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Personas',
+                data: []
+            }]
+        };
+
+        var OpcionesEscuela = {
+            chart: {
+                renderTo: 'container5',
+                type: 'line'
+            },
+            title: {
+                text: 'Asistencia a escuela dominical'
+            },
+            subtitle: {
+                text: 'Ministerio de estadística'
+            },
+            xAxis: {
+                categories: [
+
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Cantidad (personas)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                },
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Personas',
+                data: []
+            }]
+        };
+
+        var OpcionesPromedio = {
+            chart: {
+                renderTo: 'container4',
+                type: 'column'
+            },
+            title: {
+                text: 'Promedio de asistencia a actividades'
+            },
+            subtitle: {
+                text: 'Ministerio de estadística'
+            },
+            xAxis: {
+                categories: [
+                    'Devocional',
+                    'Culto de oración',
+                    'Vigilias',
+                    'Escuela dominical'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Cantidad (personas)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true
+                    }
+                    ,
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Personas',
+                data: []
+            }]
+        };
+
+        var OpcionesPorcentajeSinRetirarse = {
+            chart: {
+                renderTo: 'container7',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Porcentaje de personas que no asisten a escuela dominical'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    showInLegend: false,
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Cantidad',
+                colorByPoint: true,
+                data: []
+            }]
+        };
+
+        var urlDevocional = "/Home/AsistenciaDevocional";
+        var urlActividad = "/Home/AsistenciaActividad";
+        var urlVigilia = "/Home/AsistenciaVigilia";
+        var urlEscuela = "/Home/AsistenciaEscuela";
+        var urlPromedio = "/Home/AsistenciaPromedio";
+        var urlPorcentajeSinRetirarse = "/Home/PorcentajeSinRetirarse";
+
+        $.post(urlDevocional, function (data) {
+            data = JSON.parse(data);
+            OpcionesDevocional.series[0].data = data.cantidades;
+            OpcionesDevocional.xAxis.categories = data.fechas;
+            var chart = new Highcharts.Chart(OpcionesDevocional);
+        });
+
+        $.post(urlActividad, function (data) {
+            data = JSON.parse(data);
+            OpcionesActividad.series[0].data = data.cantidades;
+            OpcionesActividad.xAxis.categories = data.fechas;
+            var chart = new Highcharts.Chart(OpcionesActividad);
+        });
+
+        $.post(urlVigilia, function (data) {
+            data = JSON.parse(data);
+            OpcionesVigilia.series[0].data = data.cantidades;
+            OpcionesVigilia.xAxis.categories = data.fechas;
+            var chart = new Highcharts.Chart(OpcionesVigilia);
+        });
+
+        $.post(urlEscuela, function (data) {
+            data = JSON.parse(data);
+            OpcionesEscuela.series[0].data = data.cantidades;
+            OpcionesEscuela.xAxis.categories = data.fechas;
+            var chart = new Highcharts.Chart(OpcionesEscuela);
+        });
+
+        $.post(urlPromedio, function (data) {
+            data = JSON.parse(data);
+            OpcionesPromedio.series[0].data = data.cantidades;
+            var chart = new Highcharts.Chart(OpcionesPromedio);
+        });
+
+        $.post(urlPorcentajeSinRetirarse, function (data) {
+            data = JSON.parse(data);
+            OpcionesPorcentajeSinRetirarse.series[0].data = data;
+            var chart = new Highcharts.Chart(OpcionesPorcentajeSinRetirarse);
+        });
+    });
+
+</script>
+    <div style="text-align: center;">
+        <h3>Iglesia Evangélica Amigos, Soyapango</h3>
+        <img src="../Content/images/logo.png" width="200" />
+        <h4>Informe de estadística</h4>
+        <h6>Período de <strong>Diciembre</strong> a <strong>Enero</strong></h6>
+    </div>
+    <hr />
+    <div id="container" style="width: 610px; height: 400px; margin: 0 auto"></div>
+
+    <div id="container2" style="width: 610px; height: 400px; margin: 0 auto"></div>
+
+    <div id="container3" style="width: 610px; height: 400px; margin: 0 auto"></div>
+
+    <div id="container5" style="width: 610px; height: 400px; margin: 0 auto"></div>
+
+    <div id="container4" style="width: 610px; height: 400px; margin: 0 auto"></div>
+
+    <div id="container7" style="width: 610px; height: 400px; margin: 0 auto"></div>
+
+    <div style="text-align: center;">
+        <span style="background-color: rgb(67, 67, 72);">&nbsp;&nbsp;&nbsp;&nbsp;</span> Asiste
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="background-color: rgb(124, 181, 236);">&nbsp;&nbsp;&nbsp;&nbsp;</span> No Asiste
+    </div>
+    <br />
+    <br />
+    <br />
