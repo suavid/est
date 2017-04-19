@@ -23,6 +23,15 @@ namespace est.Controllers
             return View();
         }
 
+        public ActionResult Censo()
+        {
+            ViewBag.Title = "Censo";
+
+            return View();
+        }
+
+
+
         public string AsistenciaDevocional()
         {
             string respuesta = "";
