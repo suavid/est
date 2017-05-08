@@ -8,10 +8,92 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.js" ></script>
+    <link href="~/Scripts/ui/jquery-ui.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+    <script type="text/javascript" src="~/Scripts/sistema.js"></script>
     @Scripts.Render("~/bundles/bootstrap")
 </head>
-<body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
+<body ng-app="Estadistica" ng-controller="SistemaController as vm">
+    <script type="text/javascript">
+    $(function () {
+        $.datepicker.regional['es'] = {
+            closeText: 'Cerrar',
+            prevText: '< Ant',
+            nextText: 'Sig >',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+
+        $("#fecha").datepicker({ dateFormat: "dd mm yy", changeYear: true, changeMonth: true, });
+    });
+    </script>
+    <script type="text/javascript">
+    var patron_dui = new Array(8, 1);
+    var patron_nit = new Array(4, 6, 3, 1);
+    var patron_telefono = new Array(4, 4);
+    var patron_fecha = new Array(4, 2, 2);
+    function mascara(d, sep, pat, nums) {
+        if (d.valant != d.value) {
+            val = d.value
+            largo = val.length
+            val = val.split(sep)
+            val2 = ''
+            for (r = 0; r < val.length; r++) {
+                val2 += val[r]
+            }
+            if (nums) {
+                for (z = 0; z < val2.length; z++) {
+                    if (isNaN(val2.charAt(z))) {
+                        letra = new RegExp(val2.charAt(z), "g")
+                        val2 = val2.replace(letra, "")
+                    }
+                }
+            }
+            val = ''
+            val3 = new Array()
+            for (s = 0; s < pat.length; s++) {
+                val3[s] = val2.substring(0, pat[s])
+                val2 = val2.substr(pat[s])
+            }
+            for (q = 0; q < val3.length; q++) {
+                if (q == 0) {
+                    val = val3[q]
+                }
+                else {
+                    if (val3[q] != "") {
+                        val += sep + val3[q]
+                    }
+                }
+            }
+
+            d.value = val
+            d.valant = val
+        }
+    }
+
+    function VerificarEntero(d) {
+        if (isNaN(d.value)) {
+            d.value = "0";
+        }
+    }
+    </script>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -19,21 +101,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Estadística", "Inicio", "System", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Devocionales dominicales", "DevocionalDominical", "System", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Cultos de oración", "CultoDeOracion", "System", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Vigilias", "Vigilia", "System", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Actividades Juveniles", "ActividadJuvenil", "System", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Escuela biblica", "EscuelaBiblica", "System", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Formulario de Censo", "Censo", "System", new { area = "" }, null)</li>
                 </ul>
             </div>
         </div>
-    </div>*@
+    </div>
     <div class="container body-content">
+        <br/><br />
         @RenderBody()
         <hr />
     </div>
-
+    <footer>
+        <a>Reporte estadístico</a> | <a>Calendario de actividades</a> 
+    </footer>
    
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>

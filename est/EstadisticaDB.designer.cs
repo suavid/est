@@ -145,6 +145,83 @@ namespace est
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fechaInicio, fechaFin);
 			return ((ISingleResult<PorcentajeSinRetirarseResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngresarDevocional")]
+		public int IngresarDevocional([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comentarios", DbType="NVarChar(500)")] string comentarios, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdultosFueraDelTemplo", DbType="Int")] System.Nullable<int> adultosFueraDelTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ujieres", DbType="Int")] System.Nullable<int> ujieres, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdultosEnTemplo", DbType="Int")] System.Nullable<int> adultosEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="JardinInfantil", DbType="Int")] System.Nullable<int> jardinInfantil, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Primarios", DbType="Int")] System.Nullable<int> primarios, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Principiantes", DbType="Int")] System.Nullable<int> principiantes, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Parvulos", DbType="Int")] System.Nullable<int> parvulos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Responsable", DbType="Int")] System.Nullable<int> responsable, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SalaCuna", DbType="Int")] System.Nullable<int> salaCuna)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), comentarios, adultosFueraDelTemplo, ujieres, adultosEnTemplo, jardinInfantil, primarios, principiantes, parvulos, responsable, fecha, salaCuna);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngresarCultoDeOracion")]
+		public int IngresarCultoDeOracion([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comentarios", DbType="NVarChar(500)")] string comentarios, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PersonasFueraDelTemplo", DbType="Int")] System.Nullable<int> personasFueraDelTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ujieres", DbType="Int")] System.Nullable<int> ujieres, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdultosEnTemplo", DbType="Int")] System.Nullable<int> adultosEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="JovenesEnTemplo", DbType="Int")] System.Nullable<int> jovenesEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdolescentesEnTemplo", DbType="Int")] System.Nullable<int> adolescentesEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Maestros", DbType="Int")] System.Nullable<int> maestros, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NinosEnClase", DbType="Int")] System.Nullable<int> ninosEnClase, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NinosEnTemplo", DbType="Int")] System.Nullable<int> ninosEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Responsable", DbType="Int")] System.Nullable<int> responsable)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), comentarios, personasFueraDelTemplo, ujieres, adultosEnTemplo, jovenesEnTemplo, adolescentesEnTemplo, maestros, ninosEnClase, ninosEnTemplo, fecha, responsable);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngresarActividadJuvenil")]
+		public int IngresarActividadJuvenil([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comentarios", DbType="NVarChar(500)")] string comentarios, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PersonasFueraDelTemplo", DbType="Int")] System.Nullable<int> personasFueraDelTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ujieres", DbType="Int")] System.Nullable<int> ujieres, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdultosEnTemplo", DbType="Int")] System.Nullable<int> adultosEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="JovenesEnTemplo", DbType="Int")] System.Nullable<int> jovenesEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdolescentesEnTemplo", DbType="Int")] System.Nullable<int> adolescentesEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Maestros", DbType="Int")] System.Nullable<int> maestros, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NinosEnClase", DbType="Int")] System.Nullable<int> ninosEnClase, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NinosEnTemplo", DbType="Int")] System.Nullable<int> ninosEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Responsable", DbType="Int")] System.Nullable<int> responsable)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), comentarios, personasFueraDelTemplo, ujieres, adultosEnTemplo, jovenesEnTemplo, adolescentesEnTemplo, maestros, ninosEnClase, ninosEnTemplo, fecha, responsable);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngresarEscuela")]
+		public int IngresarEscuela([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Biblias", DbType="Int")] System.Nullable<int> biblias, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CapitulosLeidos", DbType="Int")] System.Nullable<int> capitulosLeidos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ofrenda", DbType="Int")] System.Nullable<int> ofrenda, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Diezmos", DbType="Int")] System.Nullable<int> diezmos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cumpleanos", DbType="Int")] System.Nullable<int> cumpleanos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Presentes", DbType="Int")] System.Nullable<int> presentes, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Visitas", DbType="Int")] System.Nullable<int> visitas, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PersonasEvangelizadas", DbType="Int")] System.Nullable<int> personasEvangelizadas, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Maestros", DbType="Int")] System.Nullable<int> maestros, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CultosFamiliares", DbType="Int")] System.Nullable<int> cultosFamiliares, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="VisitasHogares", DbType="Int")] System.Nullable<int> visitasHogares, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Responsable", DbType="Int")] System.Nullable<int> responsable, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clase", DbType="Int")] System.Nullable<int> clase)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecha, biblias, capitulosLeidos, ofrenda, diezmos, cumpleanos, presentes, visitas, personasEvangelizadas, maestros, cultosFamiliares, visitasHogares, responsable, clase);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngresarPersona")]
+		public int IngresarPersona([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Responsable", DbType="Int")] System.Nullable<int> responsable, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="NChar(10)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido", DbType="NChar(10)")] string apellido, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaNacimiento", DbType="Date")] System.Nullable<System.DateTime> fechaNacimiento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dui", DbType="VarChar(10)")] string dui, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Direccion", DbType="VarChar(100)")] string direccion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sector", DbType="VarChar(50)")] string sector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EstadoCivil", DbType="Int")] System.Nullable<int> estadoCivil, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Miembro", DbType="Int")] System.Nullable<int> miembro, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Celular", DbType="VarChar(15)")] string celular, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefono", DbType="VarChar(15)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ministerio", DbType="Int")] System.Nullable<int> ministerio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProfesionOficio", DbType="VarChar(40)")] string profesionOficio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sexo", DbType="Int")] System.Nullable<int> sexo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), responsable, nombre, apellido, fechaNacimiento, dui, direccion, sector, estadoCivil, miembro, celular, telefono, ministerio, profesionOficio, sexo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngresarVigilia")]
+		public int IngresarVigilia([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comentarios", DbType="NVarChar(500)")] string comentarios, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PersonasFueraDelTemplo", DbType="Int")] System.Nullable<int> personasFueraDelTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ujieres", DbType="Int")] System.Nullable<int> ujieres, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdultosEnTemplo", DbType="Int")] System.Nullable<int> adultosEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="JovenesEnTemplo", DbType="Int")] System.Nullable<int> jovenesEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdolescentesEnTemplo", DbType="Int")] System.Nullable<int> adolescentesEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Maestros", DbType="Int")] System.Nullable<int> maestros, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NinosEnClase", DbType="Int")] System.Nullable<int> ninosEnClase, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NinosEnTemplo", DbType="Int")] System.Nullable<int> ninosEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Responsable", DbType="Int")] System.Nullable<int> responsable)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), comentarios, personasFueraDelTemplo, ujieres, adultosEnTemplo, jovenesEnTemplo, adolescentesEnTemplo, maestros, ninosEnClase, ninosEnTemplo, fecha, responsable);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerEstadoCivil")]
+		public ISingleResult<ObtenerEstadoCivilResult> ObtenerEstadoCivil()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ObtenerEstadoCivilResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerMembresia")]
+		public ISingleResult<ObtenerMembresiaResult> ObtenerMembresia()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ObtenerMembresiaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerMinisterio")]
+		public ISingleResult<ObtenerMinisterioResult> ObtenerMinisterio()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ObtenerMinisterioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerSexo")]
+		public ISingleResult<ObtenerSexoResult> ObtenerSexo()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ObtenerSexoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerClase")]
+		public ISingleResult<ObtenerClaseResult> ObtenerClase()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ObtenerClaseResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class AsistenciaActividadResult
@@ -472,6 +549,226 @@ namespace est
 				if ((this._name != value))
 				{
 					this._name = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ObtenerEstadoCivilResult
+	{
+		
+		private int _IdEstadoCivil;
+		
+		private string _Descripcion;
+		
+		public ObtenerEstadoCivilResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdEstadoCivil", DbType="Int NOT NULL")]
+		public int IdEstadoCivil
+		{
+			get
+			{
+				return this._IdEstadoCivil;
+			}
+			set
+			{
+				if ((this._IdEstadoCivil != value))
+				{
+					this._IdEstadoCivil = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(15)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ObtenerMembresiaResult
+	{
+		
+		private int _IdMembresia;
+		
+		private string _Descripcion;
+		
+		public ObtenerMembresiaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMembresia", DbType="Int NOT NULL")]
+		public int IdMembresia
+		{
+			get
+			{
+				return this._IdMembresia;
+			}
+			set
+			{
+				if ((this._IdMembresia != value))
+				{
+					this._IdMembresia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(20)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ObtenerMinisterioResult
+	{
+		
+		private int _IdMinisterio;
+		
+		private string _Nombre;
+		
+		public ObtenerMinisterioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMinisterio", DbType="Int NOT NULL")]
+		public int IdMinisterio
+		{
+			get
+			{
+				return this._IdMinisterio;
+			}
+			set
+			{
+				if ((this._IdMinisterio != value))
+				{
+					this._IdMinisterio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(80)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ObtenerSexoResult
+	{
+		
+		private int _IdSexo;
+		
+		private string _Descripcion;
+		
+		public ObtenerSexoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSexo", DbType="Int NOT NULL")]
+		public int IdSexo
+		{
+			get
+			{
+				return this._IdSexo;
+			}
+			set
+			{
+				if ((this._IdSexo != value))
+				{
+					this._IdSexo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(15)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ObtenerClaseResult
+	{
+		
+		private int _IdClase;
+		
+		private string _Nombre;
+		
+		public ObtenerClaseResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdClase", DbType="Int NOT NULL")]
+		public int IdClase
+		{
+			get
+			{
+				return this._IdClase;
+			}
+			set
+			{
+				if ((this._IdClase != value))
+				{
+					this._IdClase = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
 				}
 			}
 		}

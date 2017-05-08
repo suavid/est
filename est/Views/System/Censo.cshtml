@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Censo";
+}
+
+<form role="form" class="dataform">
+    <h3>Formulario de registro</h3>
+    <hr />
+    <div class="form-group">
+        <label>Nombres</label>
+        <input type="text" class="form-control" ng-model="vm.Persona.nombre">
+    </div>
+
+    <div class="form-group">
+        <label>Apellidos</label>
+        <input type="text" class="form-control" id="Apellidos" ng-model="vm.Persona.apellido">
+    </div>
+
+    <div class="form-group">
+        <label>Fecha de Nacimiento</label>
+        <input type="text" class="form-control" ng-model="vm.Persona.fechaNacimiento" id="fecha">
+    </div>
+
+    <div class="form-group">
+        <label>DUI</label>
+        <input type="text" class="form-control" onkeyup="mascara(this, '-', patron_dui, true)" ng-model="vm.Persona.dui" id="Dui">
+    </div>
+
+
+    <div class="form-group">
+        <label>Profesión u oficio</label>
+        <input type="text" class="form-control" ng-model="vm.Persona.profesionOficio" id="profesionOficio">
+    </div>
+
+    <div class="form-group">
+        <label>Dirección</label>
+        <input type="text" class="form-control" ng-model="vm.Persona.direccion" id="Direccion">
+    </div>
+
+    <div class="form-group">
+        <label>Sector</label>
+        <input type="text" class="form-control" ng-model="vm.Persona.sector" id="Sector">
+    </div>
+
+    <div class="form-group">
+        <label>Estado Civil</label>
+        <select class="form-control" ng-model="vm.Persona.estadoCivil">
+            <option ng-repeat="ec in vm.EstadoCivil" value="{{ec.id}}">{{ec.descripcion}}</option>
+        </select>
+    </div> 
+
+    <div class="form-group">
+        <label>Teléfono</label>
+        <input type="tel" class="form-control" onkeyup="mascara(this, '-', patron_telefono, true)" ng-model="vm.Persona.telefono" id="Telefono"
+               placeholder="Teléfono residencial">    
+   </div>
+
+    <div class="form-group">
+        <label>Celular</label>
+        <input type="tel" class="form-control" onkeyup="mascara(this, '-', patron_telefono, true)" ng-model="vm.Persona.celular" id="Celular"
+               placeholder="Teléfono móvil">
+    </div>
+
+   
+
+    <div class="form-group">
+        <label>Tipo de Miembro</label>
+        <select class="form-control" ng-model="vm.Persona.miembro">
+            <option ng-repeat="ec in vm.Membresia" value="{{ec.id}}">{{ec.descripcion}}</optio>
+        </select>
+    </div> 
+
+    <div class="form-group">
+        <label>Ministerio</label>
+        <select class="form-control" ng-model="vm.Persona.ministerio">
+            <option ng-repeat="ec in vm.Ministerio" value="{{ec.id}}">{{ec.descripcion}}</optio>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Sexo</label>
+        <select class="form-control" ng-model="vm.Persona.sexo">
+            <option ng-repeat="ec in vm.Sexo" value="{{ec.id}}">{{ec.descripcion}}</optio>
+        </select>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary" ng-click="vm.Save('persona','new')">Enviar</button>
+</form>
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form role="form" class="dataform">
+    <h3>Ingreso de datos estadísticos - Actividad juvenil</h3>
+    <hr />
+    <div class="form-group">
+        <label>
+            Fecha
+        </label>
+        <input class="form-control" id="fecha" type="date" name="Fecha" required>
+
+
+    </div>
+    <div class="form-group">
+
+        <label>
+            Total de asistencia
+        </label>
+        <input class="form-control" type="text" name="JovenesEnTemplo">
+    </div>
+    <div class="form-group">
+
+        <label>
+            Comentarios y observaciones
+        </label>
+        <textarea class="form-control" name="Comentarios"></textarea>
+
+
+    </div>
+    <div class="form-group" style="text-align: center;">
+        <button class="btn btn-primary">Guardar</button>
+    </div>
+</form>

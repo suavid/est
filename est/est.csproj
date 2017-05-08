@@ -153,6 +153,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SystemController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="EstadisticaDB.designer.cs">
       <AutoGen>True</AutoGen>
@@ -200,9 +201,29 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\sistema.js" />
+    <Content Include="Scripts\ui\AUTHORS.txt" />
+    <Content Include="Scripts\ui\external\jquery\jquery.js" />
+    <Content Include="Scripts\ui\images\ui-icons_444444_256x240.png" />
+    <Content Include="Scripts\ui\images\ui-icons_555555_256x240.png" />
+    <Content Include="Scripts\ui\images\ui-icons_777620_256x240.png" />
+    <Content Include="Scripts\ui\images\ui-icons_777777_256x240.png" />
+    <Content Include="Scripts\ui\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Scripts\ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\ui\index.html" />
+    <Content Include="Scripts\ui\jquery-ui.css" />
+    <Content Include="Scripts\ui\jquery-ui.js" />
+    <Content Include="Scripts\ui\jquery-ui.min.css" />
+    <Content Include="Scripts\ui\jquery-ui.min.js" />
+    <Content Include="Scripts\ui\jquery-ui.structure.css" />
+    <Content Include="Scripts\ui\jquery-ui.structure.min.css" />
+    <Content Include="Scripts\ui\jquery-ui.theme.css" />
+    <Content Include="Scripts\ui\jquery-ui.theme.min.css" />
+    <Content Include="Scripts\ui\LICENSE.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -220,7 +241,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Reportes.cshtml" />
-    <Content Include="Views\Home\Censo.cshtml" />
+    <Content Include="Views\System\Censo.cshtml" />
+    <Content Include="Views\System\Inicio.cshtml" />
+    <Content Include="Views\System\DevocionalDominical.cshtml" />
+    <Content Include="Views\System\Vigilia.cshtml" />
+    <Content Include="Views\System\CultoDeOracion.cshtml" />
+    <Content Include="Views\System\ActividadJuvenil.cshtml" />
+    <Content Include="Views\System\EscuelaBiblica.cshtml" />
+    <Content Include="Scripts\ui\package.json" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

@@ -85,4 +85,124 @@
       <Column Name="name" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.IngresarDevocional" Method="IngresarDevocional">
+    <Parameter Name="Comentarios" Parameter="comentarios" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="AdultosFueraDelTemplo" Parameter="adultosFueraDelTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ujieres" Parameter="ujieres" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AdultosEnTemplo" Parameter="adultosEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="JardinInfantil" Parameter="jardinInfantil" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Primarios" Parameter="primarios" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Principiantes" Parameter="principiantes" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Parvulos" Parameter="parvulos" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Responsable" Parameter="responsable" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Fecha" Parameter="fecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="SalaCuna" Parameter="salaCuna" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.IngresarCultoDeOracion" Method="IngresarCultoDeOracion">
+    <Parameter Name="Comentarios" Parameter="comentarios" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="PersonasFueraDelTemplo" Parameter="personasFueraDelTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ujieres" Parameter="ujieres" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AdultosEnTemplo" Parameter="adultosEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="JovenesEnTemplo" Parameter="jovenesEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AdolescentesEnTemplo" Parameter="adolescentesEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Maestros" Parameter="maestros" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NinosEnClase" Parameter="ninosEnClase" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NinosEnTemplo" Parameter="ninosEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Fecha" Parameter="fecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Responsable" Parameter="responsable" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.IngresarActividadJuvenil" Method="IngresarActividadJuvenil">
+    <Parameter Name="Comentarios" Parameter="comentarios" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="PersonasFueraDelTemplo" Parameter="personasFueraDelTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ujieres" Parameter="ujieres" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AdultosEnTemplo" Parameter="adultosEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="JovenesEnTemplo" Parameter="jovenesEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AdolescentesEnTemplo" Parameter="adolescentesEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Maestros" Parameter="maestros" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NinosEnClase" Parameter="ninosEnClase" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NinosEnTemplo" Parameter="ninosEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Fecha" Parameter="fecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Responsable" Parameter="responsable" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.IngresarEscuela" Method="IngresarEscuela">
+    <Parameter Name="Fecha" Parameter="fecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Biblias" Parameter="biblias" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CapitulosLeidos" Parameter="capitulosLeidos" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ofrenda" Parameter="ofrenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Diezmos" Parameter="diezmos" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cumpleanos" Parameter="cumpleanos" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Presentes" Parameter="presentes" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Visitas" Parameter="visitas" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PersonasEvangelizadas" Parameter="personasEvangelizadas" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Maestros" Parameter="maestros" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CultosFamiliares" Parameter="cultosFamiliares" Type="System.Int32" DbType="Int" />
+    <Parameter Name="VisitasHogares" Parameter="visitasHogares" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Responsable" Parameter="responsable" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Clase" Parameter="clase" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.IngresarPersona" Method="IngresarPersona">
+    <Parameter Name="Responsable" Parameter="responsable" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Apellido" Parameter="apellido" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="FechaNacimiento" Parameter="fechaNacimiento" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Dui" Parameter="dui" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Sector" Parameter="sector" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="EstadoCivil" Parameter="estadoCivil" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Miembro" Parameter="miembro" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Celular" Parameter="celular" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Ministerio" Parameter="ministerio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProfesionOficio" Parameter="profesionOficio" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="Sexo" Parameter="sexo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.IngresarVigilia" Method="IngresarVigilia">
+    <Parameter Name="Comentarios" Parameter="comentarios" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="PersonasFueraDelTemplo" Parameter="personasFueraDelTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ujieres" Parameter="ujieres" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AdultosEnTemplo" Parameter="adultosEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="JovenesEnTemplo" Parameter="jovenesEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AdolescentesEnTemplo" Parameter="adolescentesEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Maestros" Parameter="maestros" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NinosEnClase" Parameter="ninosEnClase" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NinosEnTemplo" Parameter="ninosEnTemplo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Fecha" Parameter="fecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Responsable" Parameter="responsable" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ObtenerEstadoCivil" Method="ObtenerEstadoCivil">
+    <ElementType Name="ObtenerEstadoCivilResult">
+      <Column Name="IdEstadoCivil" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerMembresia" Method="ObtenerMembresia">
+    <ElementType Name="ObtenerMembresiaResult">
+      <Column Name="IdMembresia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerMinisterio" Method="ObtenerMinisterio">
+    <ElementType Name="ObtenerMinisterioResult">
+      <Column Name="IdMinisterio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerSexo" Method="ObtenerSexo">
+    <ElementType Name="ObtenerSexoResult">
+      <Column Name="IdSexo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerClase" Method="ObtenerClase">
+    <ElementType Name="ObtenerClaseResult">
+      <Column Name="IdClase" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>
