@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Inicio";
+    if (Session["usuario"] != null)
+    {
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout3.cshtml";
+    }
+}
+
+<md-content class="md-padding bgc" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="30" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Misión</span>
+                    <span class="md-subhead">2017</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                Glorificar a Jesucristo con la proclamación del evangélio y un servicio efectivo a nuestro prójimo
+            </md-card-content>
+        </md-card>
+    </div>
+    <div flex-xs flex-gt-xs="30" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Visión</span>
+                    <span class="md-subhead">2017</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                Ser una iglesia que reproduce dicpípulos de Jesucristo en obediencia a la gran comisión
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>   

@@ -1,0 +1,108 @@
+﻿@{
+    if (Session["usuario"] != null)
+    {
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout3.cshtml";
+    }
+}
+
+<form role="form" class="dataform" style="background: white; padding: 30px;">
+    <div layout="row" layout-xs="column">
+        <div flex style="padding: 15px;">
+            <md-datepicker ng-model="vm.CultoDeOracion.fecha" md-placeholder="Fecha"></md-datepicker>
+            <br /><br /><br />
+            <md-button class="md-raised md-primary" ng-click="vm.ObtenerReporte('CultoDeOracion')">Buscar</md-button>
+            <br /><br />
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Niños/as en templo
+                </label>
+                <input class="form-control" type="text" name="NinosEnTemplo" ng-model="vm.CultoDeOracion.ninosEnTemplo" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Niños/as en clase
+                </label>
+                <input class="form-control" type="text" name="NinosEnClase" ng-model="vm.CultoDeOracion.ninosEnClase" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+
+        </div>
+        <div flex style="padding: 15px;">
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Maestros
+                </label>
+                <input class="form-control" type="text" name="Maestros" ng-model="vm.CultoDeOracion.maestros" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Adolescentes en el templo
+                </label>
+                <input class="form-control" type="text" name="AdolescentesEnTemplo" ng-model="vm.CultoDeOracion.adolescentesEnTemplo" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Jovenes en el templo
+                </label>
+                <input class="form-control" type="text" name="JovenesEnTemplo" ng-model="vm.CultoDeOracion.jovenesEnTemplo" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Adultos en el templo
+                </label>
+                <input class="form-control" type="text" name="AdultosEnTemplo" ng-model="vm.CultoDeOracion.adultosEnTemplo" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+
+        </div>
+        <div flex style="padding: 15px;">
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Ujieres en servicio
+                </label>
+                <input class="form-control" type="text" name="Ujieres" ng-model="vm.CultoDeOracion.ujieres" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Personas fuera del templo
+                </label>
+                <input class="form-control" type="text" name="PersonasFueraDelTemplo" ng-model="vm.CultoDeOracion.personasFueraDelTemplo" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Comentarios y observaciones
+                </label>
+                <textarea class="form-control" name="Comentarios" ng-model="vm.CultoDeOracion.comentarios" disabled> </textarea>
+
+
+            </md-input-container>
+        </div>
+    </div>
+</form>

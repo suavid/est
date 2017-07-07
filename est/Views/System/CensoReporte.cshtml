@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Censo";
+    if (Session["usuario"] != null) { 
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout3.cshtml";
+    }
+}
+
+
+ <form role="form" class="dataform" style="background: white; padding: 30px;">
+     <div layout="row" layout-xs="column">
+         <div flex style="padding: 15px;">
+             <md-input-container class="md-block" flex-gt-xs>
+
+                 <label>
+                     Término de búsqueda
+                 </label>
+                 <input class="form-control" type="text" id="fecha" name="Fecha" ng-model="vm.Cadena" required>
+
+             </md-input-container>
+             <md-button class="md-raised md-primary" ng-click="vm.ReportePersona()">Buscar</md-button>
+             <br /><br />
+             <table style="width: 100%; text-align:center;">
+                 <thead>
+                     <tr style="background-color: #0094ff; color: white;">
+                         <th>
+                             Nombre
+                         </th>
+                         <th>
+                             Apellido
+                         </th>
+                         <th>
+                             Celular
+                         </th>
+                         <th>
+                             Teléfono
+                         </th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr ng-repeat="registro in vm.ArregloPersona">
+                         <td>
+                             {{registro.Nombre}}
+                         </td>
+                         <td>
+                             {{registro.Apellido}}
+                         </td>
+                         <td>
+                             {{registro.Celular}}
+                         </td>
+                         <td>
+                             {{registro.Telefono}}
+                         </td>
+                     </tr>
+                 </tbody>
+             </table>
+         </div>
+     </div>
+</form>

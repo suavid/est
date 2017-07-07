@@ -169,6 +169,7 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -198,11 +199,13 @@
       <LastGenOutput>EstadisticaDB.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Properties\PublishProfiles\estadistica.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sistema.js" />
@@ -224,6 +227,12 @@
     <Content Include="Scripts\ui\jquery-ui.theme.css" />
     <Content Include="Scripts\ui\jquery-ui.theme.min.css" />
     <Content Include="Scripts\ui\LICENSE.txt" />
+    <Content Include="Views\Shared\_Layout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Shared\_Layout2.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -236,11 +245,12 @@
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Reportes.cshtml" />
     <Content Include="Views\System\Censo.cshtml" />
@@ -249,8 +259,18 @@
     <Content Include="Views\System\Vigilia.cshtml" />
     <Content Include="Views\System\CultoDeOracion.cshtml" />
     <Content Include="Views\System\ActividadJuvenil.cshtml" />
-    <Content Include="Views\System\EscuelaBiblica.cshtml" />
+    <Content Include="Views\System\EscuelaBiblicaReporte.cshtml" />
     <Content Include="Scripts\ui\package.json" />
+    <Content Include="Views\System\InicioReporte.cshtml" />
+    <Content Include="Views\System\ActividadJuvenilReporte.cshtml" />
+    <Content Include="Views\System\CensoReporte.cshtml" />
+    <Content Include="Views\System\CultoDeOracionReporte.cshtml" />
+    <Content Include="Views\System\DevocionalDominicalReporte.cshtml" />
+    <Content Include="Views\System\VigiliaReporte.cshtml" />
+    <Content Include="Views\System\EscuelaBiblica.cshtml" />
+    <Content Include="Views\Shared\_Layout3.cshtml" />
+    <Content Include="Views\System\ReporteGrafico.cshtml" />
+    <Content Include="Views\System\CensoFoto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

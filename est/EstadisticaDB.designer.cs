@@ -174,13 +174,6 @@ namespace est
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngresarPersona")]
-		public int IngresarPersona([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Responsable", DbType="Int")] System.Nullable<int> responsable, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="NChar(10)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido", DbType="NChar(10)")] string apellido, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaNacimiento", DbType="Date")] System.Nullable<System.DateTime> fechaNacimiento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dui", DbType="VarChar(10)")] string dui, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Direccion", DbType="VarChar(100)")] string direccion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sector", DbType="VarChar(50)")] string sector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EstadoCivil", DbType="Int")] System.Nullable<int> estadoCivil, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Miembro", DbType="Int")] System.Nullable<int> miembro, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Celular", DbType="VarChar(15)")] string celular, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefono", DbType="VarChar(15)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ministerio", DbType="Int")] System.Nullable<int> ministerio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProfesionOficio", DbType="VarChar(40)")] string profesionOficio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sexo", DbType="Int")] System.Nullable<int> sexo)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), responsable, nombre, apellido, fechaNacimiento, dui, direccion, sector, estadoCivil, miembro, celular, telefono, ministerio, profesionOficio, sexo);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngresarVigilia")]
 		public int IngresarVigilia([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comentarios", DbType="NVarChar(500)")] string comentarios, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PersonasFueraDelTemplo", DbType="Int")] System.Nullable<int> personasFueraDelTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ujieres", DbType="Int")] System.Nullable<int> ujieres, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdultosEnTemplo", DbType="Int")] System.Nullable<int> adultosEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="JovenesEnTemplo", DbType="Int")] System.Nullable<int> jovenesEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AdolescentesEnTemplo", DbType="Int")] System.Nullable<int> adolescentesEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Maestros", DbType="Int")] System.Nullable<int> maestros, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NinosEnClase", DbType="Int")] System.Nullable<int> ninosEnClase, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NinosEnTemplo", DbType="Int")] System.Nullable<int> ninosEnTemplo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Responsable", DbType="Int")] System.Nullable<int> responsable)
 		{
@@ -221,6 +214,90 @@ namespace est
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<ObtenerClaseResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.RegistrarUsuario")]
+		public int RegistrarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreUsuario", DbType="VarChar(50)")] string nombreUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdDatos", DbType="Int")] System.Nullable<int> idDatos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clave", DbType="NVarChar(550)")] string clave, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EsDocente", DbType="Int")] System.Nullable<int> esDocente)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombreUsuario, idDatos, clave, esDocente);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ValidarUsuario")]
+		public ISingleResult<ValidarUsuarioResult> ValidarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreUsuario", DbType="VarChar(50)")] string nombreUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clave", DbType="NVarChar(550)")] string clave)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombreUsuario, clave);
+			return ((ISingleResult<ValidarUsuarioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ReporteActividad")]
+		public ISingleResult<ReporteActividadResult> ReporteActividad([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecha);
+			return ((ISingleResult<ReporteActividadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ReporteActividadEspecial")]
+		public ISingleResult<ReporteActividadEspecialResult> ReporteActividadEspecial([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecha);
+			return ((ISingleResult<ReporteActividadEspecialResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ReporteDevocional")]
+		public ISingleResult<ReporteDevocionalResult> ReporteDevocional([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecha);
+			return ((ISingleResult<ReporteDevocionalResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ReporteVigilia")]
+		public ISingleResult<ReporteVigiliaResult> ReporteVigilia([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecha);
+			return ((ISingleResult<ReporteVigiliaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ReporteEscuela")]
+		public ISingleResult<ReporteEscuelaResult> ReporteEscuela([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecha);
+			return ((ISingleResult<ReporteEscuelaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AsistenciaPromedioJovenes")]
+		public ISingleResult<AsistenciaPromedioJovenesResult> AsistenciaPromedioJovenes([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaInicio", DbType="Date")] System.Nullable<System.DateTime> fechaInicio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaFin", DbType="Date")] System.Nullable<System.DateTime> fechaFin)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fechaInicio, fechaFin);
+			return ((ISingleResult<AsistenciaPromedioJovenesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerProfesiones")]
+		public ISingleResult<ObtenerProfesionesResult> ObtenerProfesiones([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(40)")] string texto)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), texto);
+			return ((ISingleResult<ObtenerProfesionesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerSectores")]
+		public ISingleResult<ObtenerSectoresResult> ObtenerSectores([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string texto)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), texto);
+			return ((ISingleResult<ObtenerSectoresResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ReportePersona")]
+		public ISingleResult<ReportePersonaResult> ReportePersona([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CadenaBusqueda", DbType="VarChar(MAX)")] string cadenaBusqueda)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cadenaBusqueda);
+			return ((ISingleResult<ReportePersonaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngresarPersona")]
+		public int IngresarPersona([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Responsable", DbType="Int")] System.Nullable<int> responsable, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="NChar(100)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido", DbType="NChar(100)")] string apellido, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaNacimiento", DbType="Date")] System.Nullable<System.DateTime> fechaNacimiento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dui", DbType="VarChar(10)")] string dui, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Direccion", DbType="VarChar(100)")] string direccion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sector", DbType="VarChar(50)")] string sector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EstadoCivil", DbType="Int")] System.Nullable<int> estadoCivil, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Miembro", DbType="Int")] System.Nullable<int> miembro, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Celular", DbType="VarChar(15)")] string celular, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefono", DbType="VarChar(15)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ministerio", DbType="VarChar(MAX)")] string ministerio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProfesionOficio", DbType="VarChar(40)")] string profesionOficio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sexo", DbType="Int")] System.Nullable<int> sexo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), responsable, nombre, apellido, fechaNacimiento, dui, direccion, sector, estadoCivil, miembro, celular, telefono, ministerio, profesionOficio, sexo);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -769,6 +846,1616 @@ namespace est
 				if ((this._Nombre != value))
 				{
 					this._Nombre = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ValidarUsuarioResult
+	{
+		
+		private string _NombreUsuario;
+		
+		public ValidarUsuarioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NombreUsuario
+		{
+			get
+			{
+				return this._NombreUsuario;
+			}
+			set
+			{
+				if ((this._NombreUsuario != value))
+				{
+					this._NombreUsuario = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ReporteActividadResult
+	{
+		
+		private string _Comentarios;
+		
+		private System.Nullable<int> _PersonasFueraDelTemplo;
+		
+		private System.Nullable<int> _Ujieres;
+		
+		private System.Nullable<int> _AdultosEnTemplo;
+		
+		private System.Nullable<int> _JovenesEnTemplo;
+		
+		private System.Nullable<int> _AdolescentesEnTemplo;
+		
+		private System.Nullable<int> _Maestros;
+		
+		private System.Nullable<int> _NinosEnClase;
+		
+		private System.Nullable<int> _NinosEnTemplo;
+		
+		private System.Nullable<System.DateTime> _Fecha;
+		
+		private int _id;
+		
+		private System.Nullable<short> _EsVigilia;
+		
+		private System.Nullable<int> _cJovenes;
+		
+		private int _Responsable;
+		
+		public ReporteActividadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentarios", DbType="NVarChar(500)")]
+		public string Comentarios
+		{
+			get
+			{
+				return this._Comentarios;
+			}
+			set
+			{
+				if ((this._Comentarios != value))
+				{
+					this._Comentarios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersonasFueraDelTemplo", DbType="Int")]
+		public System.Nullable<int> PersonasFueraDelTemplo
+		{
+			get
+			{
+				return this._PersonasFueraDelTemplo;
+			}
+			set
+			{
+				if ((this._PersonasFueraDelTemplo != value))
+				{
+					this._PersonasFueraDelTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ujieres", DbType="Int")]
+		public System.Nullable<int> Ujieres
+		{
+			get
+			{
+				return this._Ujieres;
+			}
+			set
+			{
+				if ((this._Ujieres != value))
+				{
+					this._Ujieres = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdultosEnTemplo", DbType="Int")]
+		public System.Nullable<int> AdultosEnTemplo
+		{
+			get
+			{
+				return this._AdultosEnTemplo;
+			}
+			set
+			{
+				if ((this._AdultosEnTemplo != value))
+				{
+					this._AdultosEnTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JovenesEnTemplo", DbType="Int")]
+		public System.Nullable<int> JovenesEnTemplo
+		{
+			get
+			{
+				return this._JovenesEnTemplo;
+			}
+			set
+			{
+				if ((this._JovenesEnTemplo != value))
+				{
+					this._JovenesEnTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdolescentesEnTemplo", DbType="Int")]
+		public System.Nullable<int> AdolescentesEnTemplo
+		{
+			get
+			{
+				return this._AdolescentesEnTemplo;
+			}
+			set
+			{
+				if ((this._AdolescentesEnTemplo != value))
+				{
+					this._AdolescentesEnTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Maestros", DbType="Int")]
+		public System.Nullable<int> Maestros
+		{
+			get
+			{
+				return this._Maestros;
+			}
+			set
+			{
+				if ((this._Maestros != value))
+				{
+					this._Maestros = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NinosEnClase", DbType="Int")]
+		public System.Nullable<int> NinosEnClase
+		{
+			get
+			{
+				return this._NinosEnClase;
+			}
+			set
+			{
+				if ((this._NinosEnClase != value))
+				{
+					this._NinosEnClase = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NinosEnTemplo", DbType="Int")]
+		public System.Nullable<int> NinosEnTemplo
+		{
+			get
+			{
+				return this._NinosEnTemplo;
+			}
+			set
+			{
+				if ((this._NinosEnTemplo != value))
+				{
+					this._NinosEnTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="Date")]
+		public System.Nullable<System.DateTime> Fecha
+		{
+			get
+			{
+				return this._Fecha;
+			}
+			set
+			{
+				if ((this._Fecha != value))
+				{
+					this._Fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EsVigilia", DbType="SmallInt")]
+		public System.Nullable<short> EsVigilia
+		{
+			get
+			{
+				return this._EsVigilia;
+			}
+			set
+			{
+				if ((this._EsVigilia != value))
+				{
+					this._EsVigilia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cJovenes", DbType="Int")]
+		public System.Nullable<int> cJovenes
+		{
+			get
+			{
+				return this._cJovenes;
+			}
+			set
+			{
+				if ((this._cJovenes != value))
+				{
+					this._cJovenes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Responsable", DbType="Int NOT NULL")]
+		public int Responsable
+		{
+			get
+			{
+				return this._Responsable;
+			}
+			set
+			{
+				if ((this._Responsable != value))
+				{
+					this._Responsable = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ReporteActividadEspecialResult
+	{
+		
+		private string _Comentarios;
+		
+		private System.Nullable<int> _AdultosFueraDelTemplo;
+		
+		private System.Nullable<int> _Ujieres;
+		
+		private System.Nullable<int> _AdultosEnTemplo;
+		
+		private System.Nullable<int> _JardinInfantil;
+		
+		private System.Nullable<int> _Primarios;
+		
+		private System.Nullable<int> _Principiantes;
+		
+		private System.Nullable<int> _Parvulos;
+		
+		private int _Responsable;
+		
+		private System.Nullable<System.DateTime> _Fecha;
+		
+		private System.Nullable<int> _SalaCuna;
+		
+		private int _id;
+		
+		private System.Nullable<int> _especial;
+		
+		public ReporteActividadEspecialResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentarios", DbType="NVarChar(500)")]
+		public string Comentarios
+		{
+			get
+			{
+				return this._Comentarios;
+			}
+			set
+			{
+				if ((this._Comentarios != value))
+				{
+					this._Comentarios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdultosFueraDelTemplo", DbType="Int")]
+		public System.Nullable<int> AdultosFueraDelTemplo
+		{
+			get
+			{
+				return this._AdultosFueraDelTemplo;
+			}
+			set
+			{
+				if ((this._AdultosFueraDelTemplo != value))
+				{
+					this._AdultosFueraDelTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ujieres", DbType="Int")]
+		public System.Nullable<int> Ujieres
+		{
+			get
+			{
+				return this._Ujieres;
+			}
+			set
+			{
+				if ((this._Ujieres != value))
+				{
+					this._Ujieres = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdultosEnTemplo", DbType="Int")]
+		public System.Nullable<int> AdultosEnTemplo
+		{
+			get
+			{
+				return this._AdultosEnTemplo;
+			}
+			set
+			{
+				if ((this._AdultosEnTemplo != value))
+				{
+					this._AdultosEnTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JardinInfantil", DbType="Int")]
+		public System.Nullable<int> JardinInfantil
+		{
+			get
+			{
+				return this._JardinInfantil;
+			}
+			set
+			{
+				if ((this._JardinInfantil != value))
+				{
+					this._JardinInfantil = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Primarios", DbType="Int")]
+		public System.Nullable<int> Primarios
+		{
+			get
+			{
+				return this._Primarios;
+			}
+			set
+			{
+				if ((this._Primarios != value))
+				{
+					this._Primarios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Principiantes", DbType="Int")]
+		public System.Nullable<int> Principiantes
+		{
+			get
+			{
+				return this._Principiantes;
+			}
+			set
+			{
+				if ((this._Principiantes != value))
+				{
+					this._Principiantes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Parvulos", DbType="Int")]
+		public System.Nullable<int> Parvulos
+		{
+			get
+			{
+				return this._Parvulos;
+			}
+			set
+			{
+				if ((this._Parvulos != value))
+				{
+					this._Parvulos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Responsable", DbType="Int NOT NULL")]
+		public int Responsable
+		{
+			get
+			{
+				return this._Responsable;
+			}
+			set
+			{
+				if ((this._Responsable != value))
+				{
+					this._Responsable = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="Date")]
+		public System.Nullable<System.DateTime> Fecha
+		{
+			get
+			{
+				return this._Fecha;
+			}
+			set
+			{
+				if ((this._Fecha != value))
+				{
+					this._Fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaCuna", DbType="Int")]
+		public System.Nullable<int> SalaCuna
+		{
+			get
+			{
+				return this._SalaCuna;
+			}
+			set
+			{
+				if ((this._SalaCuna != value))
+				{
+					this._SalaCuna = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_especial", DbType="Int")]
+		public System.Nullable<int> especial
+		{
+			get
+			{
+				return this._especial;
+			}
+			set
+			{
+				if ((this._especial != value))
+				{
+					this._especial = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ReporteDevocionalResult
+	{
+		
+		private string _Comentarios;
+		
+		private System.Nullable<int> _AdultosFueraDelTemplo;
+		
+		private System.Nullable<int> _Ujieres;
+		
+		private System.Nullable<int> _AdultosEnTemplo;
+		
+		private System.Nullable<int> _JardinInfantil;
+		
+		private System.Nullable<int> _Primarios;
+		
+		private System.Nullable<int> _Principiantes;
+		
+		private System.Nullable<int> _Parvulos;
+		
+		private int _Responsable;
+		
+		private System.Nullable<System.DateTime> _Fecha;
+		
+		private System.Nullable<int> _SalaCuna;
+		
+		private int _id;
+		
+		private System.Nullable<int> _especial;
+		
+		public ReporteDevocionalResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentarios", DbType="NVarChar(500)")]
+		public string Comentarios
+		{
+			get
+			{
+				return this._Comentarios;
+			}
+			set
+			{
+				if ((this._Comentarios != value))
+				{
+					this._Comentarios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdultosFueraDelTemplo", DbType="Int")]
+		public System.Nullable<int> AdultosFueraDelTemplo
+		{
+			get
+			{
+				return this._AdultosFueraDelTemplo;
+			}
+			set
+			{
+				if ((this._AdultosFueraDelTemplo != value))
+				{
+					this._AdultosFueraDelTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ujieres", DbType="Int")]
+		public System.Nullable<int> Ujieres
+		{
+			get
+			{
+				return this._Ujieres;
+			}
+			set
+			{
+				if ((this._Ujieres != value))
+				{
+					this._Ujieres = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdultosEnTemplo", DbType="Int")]
+		public System.Nullable<int> AdultosEnTemplo
+		{
+			get
+			{
+				return this._AdultosEnTemplo;
+			}
+			set
+			{
+				if ((this._AdultosEnTemplo != value))
+				{
+					this._AdultosEnTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JardinInfantil", DbType="Int")]
+		public System.Nullable<int> JardinInfantil
+		{
+			get
+			{
+				return this._JardinInfantil;
+			}
+			set
+			{
+				if ((this._JardinInfantil != value))
+				{
+					this._JardinInfantil = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Primarios", DbType="Int")]
+		public System.Nullable<int> Primarios
+		{
+			get
+			{
+				return this._Primarios;
+			}
+			set
+			{
+				if ((this._Primarios != value))
+				{
+					this._Primarios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Principiantes", DbType="Int")]
+		public System.Nullable<int> Principiantes
+		{
+			get
+			{
+				return this._Principiantes;
+			}
+			set
+			{
+				if ((this._Principiantes != value))
+				{
+					this._Principiantes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Parvulos", DbType="Int")]
+		public System.Nullable<int> Parvulos
+		{
+			get
+			{
+				return this._Parvulos;
+			}
+			set
+			{
+				if ((this._Parvulos != value))
+				{
+					this._Parvulos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Responsable", DbType="Int NOT NULL")]
+		public int Responsable
+		{
+			get
+			{
+				return this._Responsable;
+			}
+			set
+			{
+				if ((this._Responsable != value))
+				{
+					this._Responsable = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="Date")]
+		public System.Nullable<System.DateTime> Fecha
+		{
+			get
+			{
+				return this._Fecha;
+			}
+			set
+			{
+				if ((this._Fecha != value))
+				{
+					this._Fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaCuna", DbType="Int")]
+		public System.Nullable<int> SalaCuna
+		{
+			get
+			{
+				return this._SalaCuna;
+			}
+			set
+			{
+				if ((this._SalaCuna != value))
+				{
+					this._SalaCuna = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_especial", DbType="Int")]
+		public System.Nullable<int> especial
+		{
+			get
+			{
+				return this._especial;
+			}
+			set
+			{
+				if ((this._especial != value))
+				{
+					this._especial = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ReporteVigiliaResult
+	{
+		
+		private string _Comentarios;
+		
+		private System.Nullable<int> _PersonasFueraDelTemplo;
+		
+		private System.Nullable<int> _Ujieres;
+		
+		private System.Nullable<int> _AdultosEnTemplo;
+		
+		private System.Nullable<int> _JovenesEnTemplo;
+		
+		private System.Nullable<int> _AdolescentesEnTemplo;
+		
+		private System.Nullable<int> _Maestros;
+		
+		private System.Nullable<int> _NinosEnClase;
+		
+		private System.Nullable<int> _NinosEnTemplo;
+		
+		private System.Nullable<System.DateTime> _Fecha;
+		
+		private int _id;
+		
+		private System.Nullable<short> _EsVigilia;
+		
+		private System.Nullable<int> _cJovenes;
+		
+		private int _Responsable;
+		
+		public ReporteVigiliaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentarios", DbType="NVarChar(500)")]
+		public string Comentarios
+		{
+			get
+			{
+				return this._Comentarios;
+			}
+			set
+			{
+				if ((this._Comentarios != value))
+				{
+					this._Comentarios = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersonasFueraDelTemplo", DbType="Int")]
+		public System.Nullable<int> PersonasFueraDelTemplo
+		{
+			get
+			{
+				return this._PersonasFueraDelTemplo;
+			}
+			set
+			{
+				if ((this._PersonasFueraDelTemplo != value))
+				{
+					this._PersonasFueraDelTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ujieres", DbType="Int")]
+		public System.Nullable<int> Ujieres
+		{
+			get
+			{
+				return this._Ujieres;
+			}
+			set
+			{
+				if ((this._Ujieres != value))
+				{
+					this._Ujieres = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdultosEnTemplo", DbType="Int")]
+		public System.Nullable<int> AdultosEnTemplo
+		{
+			get
+			{
+				return this._AdultosEnTemplo;
+			}
+			set
+			{
+				if ((this._AdultosEnTemplo != value))
+				{
+					this._AdultosEnTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JovenesEnTemplo", DbType="Int")]
+		public System.Nullable<int> JovenesEnTemplo
+		{
+			get
+			{
+				return this._JovenesEnTemplo;
+			}
+			set
+			{
+				if ((this._JovenesEnTemplo != value))
+				{
+					this._JovenesEnTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdolescentesEnTemplo", DbType="Int")]
+		public System.Nullable<int> AdolescentesEnTemplo
+		{
+			get
+			{
+				return this._AdolescentesEnTemplo;
+			}
+			set
+			{
+				if ((this._AdolescentesEnTemplo != value))
+				{
+					this._AdolescentesEnTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Maestros", DbType="Int")]
+		public System.Nullable<int> Maestros
+		{
+			get
+			{
+				return this._Maestros;
+			}
+			set
+			{
+				if ((this._Maestros != value))
+				{
+					this._Maestros = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NinosEnClase", DbType="Int")]
+		public System.Nullable<int> NinosEnClase
+		{
+			get
+			{
+				return this._NinosEnClase;
+			}
+			set
+			{
+				if ((this._NinosEnClase != value))
+				{
+					this._NinosEnClase = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NinosEnTemplo", DbType="Int")]
+		public System.Nullable<int> NinosEnTemplo
+		{
+			get
+			{
+				return this._NinosEnTemplo;
+			}
+			set
+			{
+				if ((this._NinosEnTemplo != value))
+				{
+					this._NinosEnTemplo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="Date")]
+		public System.Nullable<System.DateTime> Fecha
+		{
+			get
+			{
+				return this._Fecha;
+			}
+			set
+			{
+				if ((this._Fecha != value))
+				{
+					this._Fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EsVigilia", DbType="SmallInt")]
+		public System.Nullable<short> EsVigilia
+		{
+			get
+			{
+				return this._EsVigilia;
+			}
+			set
+			{
+				if ((this._EsVigilia != value))
+				{
+					this._EsVigilia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cJovenes", DbType="Int")]
+		public System.Nullable<int> cJovenes
+		{
+			get
+			{
+				return this._cJovenes;
+			}
+			set
+			{
+				if ((this._cJovenes != value))
+				{
+					this._cJovenes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Responsable", DbType="Int NOT NULL")]
+		public int Responsable
+		{
+			get
+			{
+				return this._Responsable;
+			}
+			set
+			{
+				if ((this._Responsable != value))
+				{
+					this._Responsable = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ReporteEscuelaResult
+	{
+		
+		private System.DateTime _Fecha;
+		
+		private System.Nullable<int> _Total;
+		
+		private System.Nullable<int> _Biblias;
+		
+		private System.Nullable<int> _CapitulosLeidos;
+		
+		private System.Nullable<int> _Ofrenda;
+		
+		private System.Nullable<int> _Diezmos;
+		
+		private System.Nullable<int> _Cumpleanos;
+		
+		private System.Nullable<int> _Presentes;
+		
+		private System.Nullable<int> _Visitas;
+		
+		private System.Nullable<int> _PersonasEvangelizadas;
+		
+		private System.Nullable<int> _Maestros;
+		
+		private System.Nullable<int> _CultosFamiliares;
+		
+		private System.Nullable<int> _VisitasHogares;
+		
+		private int _Responsable;
+		
+		private string _Clase;
+		
+		public ReporteEscuelaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="Date NOT NULL")]
+		public System.DateTime Fecha
+		{
+			get
+			{
+				return this._Fecha;
+			}
+			set
+			{
+				if ((this._Fecha != value))
+				{
+					this._Fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Int")]
+		public System.Nullable<int> Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this._Total = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Biblias", DbType="Int")]
+		public System.Nullable<int> Biblias
+		{
+			get
+			{
+				return this._Biblias;
+			}
+			set
+			{
+				if ((this._Biblias != value))
+				{
+					this._Biblias = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CapitulosLeidos", DbType="Int")]
+		public System.Nullable<int> CapitulosLeidos
+		{
+			get
+			{
+				return this._CapitulosLeidos;
+			}
+			set
+			{
+				if ((this._CapitulosLeidos != value))
+				{
+					this._CapitulosLeidos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ofrenda", DbType="Int")]
+		public System.Nullable<int> Ofrenda
+		{
+			get
+			{
+				return this._Ofrenda;
+			}
+			set
+			{
+				if ((this._Ofrenda != value))
+				{
+					this._Ofrenda = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diezmos", DbType="Int")]
+		public System.Nullable<int> Diezmos
+		{
+			get
+			{
+				return this._Diezmos;
+			}
+			set
+			{
+				if ((this._Diezmos != value))
+				{
+					this._Diezmos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cumpleanos", DbType="Int")]
+		public System.Nullable<int> Cumpleanos
+		{
+			get
+			{
+				return this._Cumpleanos;
+			}
+			set
+			{
+				if ((this._Cumpleanos != value))
+				{
+					this._Cumpleanos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Presentes", DbType="Int")]
+		public System.Nullable<int> Presentes
+		{
+			get
+			{
+				return this._Presentes;
+			}
+			set
+			{
+				if ((this._Presentes != value))
+				{
+					this._Presentes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Visitas", DbType="Int")]
+		public System.Nullable<int> Visitas
+		{
+			get
+			{
+				return this._Visitas;
+			}
+			set
+			{
+				if ((this._Visitas != value))
+				{
+					this._Visitas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersonasEvangelizadas", DbType="Int")]
+		public System.Nullable<int> PersonasEvangelizadas
+		{
+			get
+			{
+				return this._PersonasEvangelizadas;
+			}
+			set
+			{
+				if ((this._PersonasEvangelizadas != value))
+				{
+					this._PersonasEvangelizadas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Maestros", DbType="Int")]
+		public System.Nullable<int> Maestros
+		{
+			get
+			{
+				return this._Maestros;
+			}
+			set
+			{
+				if ((this._Maestros != value))
+				{
+					this._Maestros = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CultosFamiliares", DbType="Int")]
+		public System.Nullable<int> CultosFamiliares
+		{
+			get
+			{
+				return this._CultosFamiliares;
+			}
+			set
+			{
+				if ((this._CultosFamiliares != value))
+				{
+					this._CultosFamiliares = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VisitasHogares", DbType="Int")]
+		public System.Nullable<int> VisitasHogares
+		{
+			get
+			{
+				return this._VisitasHogares;
+			}
+			set
+			{
+				if ((this._VisitasHogares != value))
+				{
+					this._VisitasHogares = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Responsable", DbType="Int NOT NULL")]
+		public int Responsable
+		{
+			get
+			{
+				return this._Responsable;
+			}
+			set
+			{
+				if ((this._Responsable != value))
+				{
+					this._Responsable = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clase", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Clase
+		{
+			get
+			{
+				return this._Clase;
+			}
+			set
+			{
+				if ((this._Clase != value))
+				{
+					this._Clase = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AsistenciaPromedioJovenesResult
+	{
+		
+		private System.Nullable<int> _Cantidad;
+		
+		public AsistenciaPromedioJovenesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ObtenerProfesionesResult
+	{
+		
+		private string _ProfesionOficio;
+		
+		public ObtenerProfesionesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProfesionOficio", DbType="VarChar(40)")]
+		public string ProfesionOficio
+		{
+			get
+			{
+				return this._ProfesionOficio;
+			}
+			set
+			{
+				if ((this._ProfesionOficio != value))
+				{
+					this._ProfesionOficio = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ObtenerSectoresResult
+	{
+		
+		private string _Sector;
+		
+		public ObtenerSectoresResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sector", DbType="VarChar(50)")]
+		public string Sector
+		{
+			get
+			{
+				return this._Sector;
+			}
+			set
+			{
+				if ((this._Sector != value))
+				{
+					this._Sector = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ReportePersonaResult
+	{
+		
+		private string _Nombre;
+		
+		private string _Apellido;
+		
+		private System.Nullable<int> _FechaNacimiento;
+		
+		private string _Dui;
+		
+		private string _Direccion;
+		
+		private string _Sector;
+		
+		private string _EstadoCivil;
+		
+		private string _Miembro;
+		
+		private string _Celular;
+		
+		private string _Telefono;
+		
+		private string _ProfesionOficio;
+		
+		private string _Sexo;
+		
+		public ReportePersonaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="NChar(100)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido", DbType="NChar(100)")]
+		public string Apellido
+		{
+			get
+			{
+				return this._Apellido;
+			}
+			set
+			{
+				if ((this._Apellido != value))
+				{
+					this._Apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaNacimiento", DbType="Int")]
+		public System.Nullable<int> FechaNacimiento
+		{
+			get
+			{
+				return this._FechaNacimiento;
+			}
+			set
+			{
+				if ((this._FechaNacimiento != value))
+				{
+					this._FechaNacimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dui", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string Dui
+		{
+			get
+			{
+				return this._Dui;
+			}
+			set
+			{
+				if ((this._Dui != value))
+				{
+					this._Dui = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(100)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sector", DbType="VarChar(50)")]
+		public string Sector
+		{
+			get
+			{
+				return this._Sector;
+			}
+			set
+			{
+				if ((this._Sector != value))
+				{
+					this._Sector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstadoCivil", DbType="VarChar(15)")]
+		public string EstadoCivil
+		{
+			get
+			{
+				return this._EstadoCivil;
+			}
+			set
+			{
+				if ((this._EstadoCivil != value))
+				{
+					this._EstadoCivil = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Miembro", DbType="VarChar(20)")]
+		public string Miembro
+		{
+			get
+			{
+				return this._Miembro;
+			}
+			set
+			{
+				if ((this._Miembro != value))
+				{
+					this._Miembro = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Celular", DbType="VarChar(15)")]
+		public string Celular
+		{
+			get
+			{
+				return this._Celular;
+			}
+			set
+			{
+				if ((this._Celular != value))
+				{
+					this._Celular = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(15)")]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProfesionOficio", DbType="VarChar(40)")]
+		public string ProfesionOficio
+		{
+			get
+			{
+				return this._ProfesionOficio;
+			}
+			set
+			{
+				if ((this._ProfesionOficio != value))
+				{
+					this._ProfesionOficio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sexo", DbType="VarChar(15)")]
+		public string Sexo
+		{
+			get
+			{
+				return this._Sexo;
+			}
+			set
+			{
+				if ((this._Sexo != value))
+				{
+					this._Sexo = value;
 				}
 			}
 		}

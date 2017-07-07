@@ -13,9 +13,79 @@ function SistemaController($http) {
     var ActividadJuvenilMV = [];
     var CultoDeOracionMV = [];
     var EscuelaBiblicaMV = [];
-    var PersonaMV = [];
+    var PersonaMV = ["nombre", "apelido", "fechaNacimiento", "direccion", "sector"];
     var VigiliaMV = [];
 
+
+    vm.Title = "Página de inicio";
+
+    vm.searchText = "";
+    vm.searchText2 = "";
+
+    vm.FechaReporte = new Date();
+
+    vm.Usuario = "";
+    vm.Clave = "";
+    vm.tipoReporte = "";
+    vm.profesionOficioSeleccionado = null,
+    vm.sectorSeleccionado = null;
+    vm.ministeriosSeleccionados = null;
+
+    window.onhashchange = function () {
+        if (location.href.split("/").length > 1) {
+            var parts = location.href.split("/");
+            switch (parts[parts.length - 1]) {
+                case "DevocionalDominical":
+                    vm.Title = "Devocional dominical";
+                    break;
+            }
+        }
+    }
+
+    if (location.href.split("/").length > 1) {
+        var parts = location.href.split("/");
+        switch (parts[parts.length - 1]) {
+            case "DevocionalDominical":
+                vm.Title = "Devocional dominical";
+                break;
+            case "DevocionalDominicalReporte":
+                vm.Title = "Devocional dominical";
+                break;
+            case "CultoDeOracion":
+                vm.Title = "Culto de oración";
+                break;
+            case "CultoDeOracionReporte":
+                vm.Title = "Culto de oración";
+                break;
+            case "Vigilia":
+                vm.Title = "Vigilia";
+                break;
+            case "VigiliaReporte":
+                vm.Title = "Vigilia";
+                break;
+            case "ActividadJuvenil":
+                vm.Title = "Centro juvenil";
+                break;
+            case "ActividadJuvenilReporte":
+                vm.Title = "Centro juvenil";
+                break;
+            case "EscuelaBiblica":
+                vm.Title = "Escuela bíblica";
+                break;
+            case "EscuelaBiblicaReporte":
+                vm.Title = "Escuela bíblica";
+                break;
+            case "Censo":
+                vm.Title = "Censo";
+                break;
+            case "CensoReporte":
+                vm.Title = "Censo";
+                break;
+        }
+    }
+
+    vm.ArregloEscuela = [];
+    vm.ArregloPersona = [];
 
     // Variables para formularios
     vm.DevocionalDominical = {
@@ -27,8 +97,21 @@ function SistemaController($http) {
         primarios: 0,
         principiantes: 0,
         parvulos: 0,
-        fecha: "",
+        fecha: new Date(),
         salaCuna: 0
+    };
+
+    vm.DevocionalDominicalReporte = {
+        Comentarios: "",
+        AdultosFueraDelTemplo: 0,
+        Ujieres: 0,
+        AdultosEnTemplo: 0,
+        JardinInfantil: 0,
+        Primarios: 0,
+        Principiantes: 0,
+        Parvulos: 0,
+        Fecha: new Date(),
+        SalaCuna: 0
     };
 
     vm.ActividadJuvenil = {
@@ -41,9 +124,9 @@ function SistemaController($http) {
         maestros:0,
         ninosEnClase:0,
         ninosEnTemplo:0,
-        fecha: ""
+        fecha: new Date()
     };
-
+   
     vm.CultoDeOracion = {
         comentarios: "",
         personasFueraDelTemplo: 0,
@@ -54,7 +137,7 @@ function SistemaController($http) {
         maestros: 0,
         ninosEnClase: 0,
         ninosEnTemplo: 0,
-        fecha: ""
+        fecha: new Date()
     };
 
     vm.EscuelaBiblica = {
@@ -70,7 +153,7 @@ function SistemaController($http) {
         visitasHogares:0,
         clase:"1",
         maestros:0,
-        fecha: ""
+        fecha: new Date()
     };
 
     vm.Vigilia = {
@@ -83,13 +166,13 @@ function SistemaController($http) {
         maestros: 0,
         ninosEnClase: 0,
         ninosEnTemplo: 0,
-        fecha: ""
+        fecha: new Date()
     };
 
     vm.Persona = {
         nombre:"",
         apellido:"",
-        fechaNacimiento:"",
+        fechaNacimiento: new Date(),
         dui:"",
         direccion:"",
         sector:"",
@@ -97,7 +180,7 @@ function SistemaController($http) {
         miembro:"1",
         celular:"",
         telefono:"",
-        ministerio:"1",
+        ministerio:"",
         profesionOficio:"",
         sexo: "1",
     };
@@ -111,11 +194,16 @@ function SistemaController($http) {
         Clave2: ""
     }
 
+    vm.Cadena = "",
+
     // Funcionalidad para verificar si el usuario ha iniciado sesión
     //vm.ValidateSession = ValidateSession;
 
     // Funcionalidades para el popup de nuevo registro
     vm.Save = Save;
+    vm.ValidarUsuario = ValidarUsuario;
+    vm.ObtenerReporte = ObtenerReporte;
+    vm.ReportePersona = ReportePersona;
 
     //// Funcionalidad para eliminar un registro
     //vm.DeleteItem = DeleteItem;
@@ -124,12 +212,53 @@ function SistemaController($http) {
     //vm.Logout = Logout;
 
     // Datos del usuario
-    vm.Usuario = {
-        NombreUsuario: ' Cargando... ',
-        EsDocente: 0,
-        EsAdministrador: 0,
-        Reset: 0,
-        IdDatos: 0
+
+    vm.Redirect = Redirect;
+ 
+    vm.selectedItemChange = selectedItemChange;
+    vm.searchTextChange = searchTextChange;
+    vm.selectedItemChange2 = selectedItemChange2;
+    vm.searchTextChange2 = searchTextChange2;
+
+    vm.ListadoProfesiones = [];
+    vm.ListadoSectores = [];
+
+    function searchTextChange(text) {
+        $http.post('/System/ObtenerProfesiones', { texto: text }, {
+            headers: {
+                "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            transformRequest: [function (data) {
+                return angular.isObject(data)
+                    ? jQuery.param(data)
+                    : data;
+            }]
+        }).then(function (response) {
+            vm.ListadoProfesiones = response.data;
+        });
+    }
+
+    function selectedItemChange(item) {
+        
+    }
+
+    function searchTextChange2(text) {
+        $http.post('/System/ObtenerSectores', { texto: text }, {
+            headers: {
+                "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            transformRequest: [function (data) {
+                return angular.isObject(data)
+                    ? jQuery.param(data)
+                    : data;
+            }]
+        }).then(function (response) {
+            vm.ListadoSectores = response.data;
+        });
+    }
+
+    function selectedItemChange2(item) {
+
     }
 
 
@@ -146,9 +275,14 @@ function SistemaController($http) {
 
     // Definición de funciones //
 
-    // Valida si existe una sesion activa
-    function ValidateSession() {
-        $http.post('Actions/ValidateSession.aspx', {}, {
+    function Redirect(url) {
+        location.href = url;
+    }
+
+  
+
+    function ReportePersona() {
+        $http.post('/System/ReportePersona', { Cadena: vm.Cadena }, {
             headers: {
                 "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8'
             },
@@ -158,8 +292,38 @@ function SistemaController($http) {
                     : data;
             }]
         }).then(function (response) {
-            if (response.data.success == false) {
-                location.href = 'login.aspx'
+
+            vm.ArregloPersona = response.data;
+        });
+    }
+
+    function ObtenerReporte(tipoReporte) {
+
+        vm.tipoReporte = tipoReporte;
+
+        $http.post('/System/ObtenerReporte', { fecha: moment(vm.FechaReporte).format('DD/MM/YYYY hh:mm:ss'), tipoReporte: tipoReporte }, {
+            headers: {
+                "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            transformRequest: [function (data) {
+                return angular.isObject(data)
+                    ? jQuery.param(data)
+                    : data;
+            }]
+        }).then(function (response) {
+
+            switch (vm.tipoReporte) {
+                case 'devocional':
+                    vm.DevocionalDominicalReporte = response.data[0];
+                    break;
+                case 'escuelaBiblica':
+                    vm.ArregloEscuela = response.data;
+                    break;
+                case 'cultoDeOracion':
+                    vm.CultoDeOracion = response.data[0];
+                    break;
+                case 'vigilia':
+                    vm.Vigilia = response.data[0];
             }
         });
     }
@@ -176,6 +340,25 @@ function SistemaController($http) {
             }]
         }).then(function (response) {
             vm.EstadoCivil = response.data;
+        });
+    }
+
+    function ValidarUsuario() {
+        $http.post('/System/ValidarUsuario', {Usuario: vm.Usuario, Clave: vm.Clave}, {
+            headers: {
+                "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            transformRequest: [function (data) {
+                return angular.isObject(data)
+                    ? jQuery.param(data)
+                    : data;
+            }]
+        }).then(function (response) {
+            if (response.data[0].Result == true) {
+                location.href = '/System/Inicio';
+            } else {
+                alert("Usuario o clave incorrectos");
+            }
         });
     }
 
@@ -239,49 +422,6 @@ function SistemaController($http) {
         });
     }
 
-    //function CreateUser(view) {
-    //    if (view == 'alumno') vm.DatosUsuario.EsDocente = 0; else vm.DatosUsuario.EsDocente = 1;
-    //    if (VerificarCamposRequeridos(vm.DatosUsuario, UsuarioMV)) {
-    //        $http.post('Actions/CrearUsuario.aspx', vm.DatosUsuario, {
-    //            headers: {
-    //                "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8'
-    //            },
-    //            transformRequest: [function (data) {
-    //                return angular.isObject(data)
-    //                    ? jQuery.param(data)
-    //                    : data;
-    //            }]
-    //        }).then(function (response) {
-    //            HidePopupUser();
-    //            RestablecerVariables();
-    //            vm.ObtenerAlumnos();
-    //            if (response.data.success = true) {
-    //                alert("Usuario creado con éxito, la clave de acceso fue enviada al correo del usuario");
-    //            } else {
-    //                alert("Ha ocurrido un error al crear el usuario");
-    //            }
-    //        });
-    //    }
-    //}
-
-
-    // Finaliza la seccion actual
-    //function Logout() {
-    //    $http.post('Actions/CloseSession.aspx', {}, {
-    //        headers: {
-    //            "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8'
-    //        },
-    //        transformRequest: [function (data) {
-    //            return angular.isObject(data)
-    //                ? jQuery.param(data)
-    //                : data;
-    //        }]
-    //    }).then(function (response) {
-    //        location.href = 'login.aspx'
-    //    });
-    //}
-
-
     // Funcion para guardar datos
     function Save(view, action) {
         // Url a la que se enviaran los datos
@@ -296,16 +436,45 @@ function SistemaController($http) {
             case 'escuela':
                 // Asigna los datos correspondientes a filial
                 Data = vm.EscuelaBiblica;
+                Data.fecha = moment(Data.fecha).format('DD/MM/YYYY hh:mm:ss')
                 MV = EscuelaBiblicaMV;
                 url = '/System/IngresarEscuela';
                 break;
             case 'persona':
                 // Asigna los datos correspondientes a filial
                 Data = vm.Persona;
+                Data.fechaNacimiento = moment(Data.fechaNacimiento).format('DD/MM/YYYY hh:mm:ss')
+                Data.profesionOficio = (vm.profesionOficioSeleccionado != null) ? vm.profesionOficioSeleccionado.value : vm.searchText;
+                Data.sector = (vm.sectorSeleccionado != null) ? vm.sectorSeleccionado.value : vm.searchText2;
+                Data.ministerio = vm.ministeriosSeleccionados.join();
                 MV = PersonaMV;
                 url = '/System/IngresarPersona';
                 break;
-        }
+            case 'juvenil':
+                Data = vm.ActividadJuvenil;
+                Data.fecha = moment(Data.fecha).format('DD/MM/YYYY hh:mm:ss')
+                MV = ActividadJuvenilMV;
+                url = '/System/IngresarActividadJuvenil';
+                break;
+            case 'vigilia':
+                Data = vm.Vigilia;
+                Data.fecha = moment(Data.fecha).format('DD/MM/YYYY hh:mm:ss')
+                MV= VigiliaMV;
+                url = '/System/IngresarVigilia';
+                break;
+            case 'oracion':
+                Data = vm.CultoDeOracion;
+                Data.fecha = moment(Data.fecha).format('DD/MM/YYYY hh:mm:ss')
+                MV = CultoDeOracionMV;
+                url = '/System/IngresarCultoDeOracion';
+                break;
+            case 'devocional':
+                Data = vm.DevocionalDominical;
+                Data.fecha = moment(Data.fecha).format('DD/MM/YYYY hh:mm:ss')
+                MV = DevocionalDominicalMV;
+                url = '/System/IngresarDevocional'
+                break;
+        }       
 
         // Envia la peticion al servidor
         if (VerificarCamposRequeridos(Data, MV)) {
@@ -319,6 +488,10 @@ function SistemaController($http) {
                         : data;
                 }]
             }).then(function (response) {
+
+                if (response.data.id) {
+                    alert("ID: "+response.data.id);
+                }
                 // Reestablece todas las variables
                 RestablecerVariables(); 
             });
@@ -388,8 +561,21 @@ function SistemaController($http) {
             primarios: 0,
             principiantes: 0,
             parvulos: 0,
-            fecha: "",
+            fecha: new Date(),
             salaCuna: 0
+        };
+
+        vm.DevocionalDominicalReporte = {
+            Comentarios: "",
+            AdultosFueraDelTemplo: 0,
+            Ujieres: 0,
+            AdultosEnTemplo: 0,
+            JardinInfantil: 0,
+            Primarios: 0,
+            Principiantes: 0,
+            Parvulos: 0,
+            Fecha: new Date(),
+            SalaCuna: 0
         };
 
         vm.ActividadJuvenil = {
@@ -402,7 +588,7 @@ function SistemaController($http) {
             maestros: 0,
             ninosEnClase: 0,
             ninosEnTemplo: 0,
-            fecha: ""
+            fecha: new Date()
         };
 
         vm.CultoDeOracion = {
@@ -415,7 +601,7 @@ function SistemaController($http) {
             maestros: 0,
             ninosEnClase: 0,
             ninosEnTemplo: 0,
-            fecha: ""
+            fecha: new Date()
         };
 
         vm.EscuelaBiblica = {
@@ -429,9 +615,9 @@ function SistemaController($http) {
             personasEvangelizadas: 0,
             cultosFamiliares: 0,
             visitasHogares: 0,
-            clase: 0,
+            clase: "1",
             maestros: 0,
-            fecha: ""
+            fecha: new Date()
         };
 
         vm.Vigilia = {
@@ -444,13 +630,13 @@ function SistemaController($http) {
             maestros: 0,
             ninosEnClase: 0,
             ninosEnTemplo: 0,
-            fecha: ""
+            fecha: new Date()
         };
 
         vm.Persona = {
             nombre: "",
             apellido: "",
-            fechaNacimiento: "",
+            fechaNacimiento: new Date(),
             dui: "",
             direccion: "",
             sector: "",
@@ -462,35 +648,11 @@ function SistemaController($http) {
             profesionOficio: "",
             sexo: "1",
         };
+
+
+        vm.searchText = "";
+        vm.searchText2 = "";
+        vm.ministeriosSeleccionados = null;
     }
 
-    //function Actualizar() {
-
-    //    if (vm.Datos.Clave != vm.Datos.Clave2) {
-    //        alert('Las claves no coinciden');
-    //    } else {
-
-    //        if (vm.Datos.Clave.length < 6) {
-    //            alert('La clave debe tener al menos 6 caracteres');
-    //        } else {
-    //            $http.post('Actions/ActualizarUsuario.aspx', vm.Datos, {
-    //                headers: {
-    //                    "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8'
-    //                },
-    //                transformRequest: [function (data) {
-    //                    return angular.isObject(data)
-    //                        ? jQuery.param(data)
-    //                        : data;
-    //                }]
-    //            }).then(function (response) {
-    //                if (response.data.success == true) {
-    //                    alert('Clave actualizada con éxito');
-    //                    location.href = 'index.aspx'
-    //                } else {
-    //                    alert('Ocurrió un error inesperado');
-    //                }
-    //            });
-    //        }
-    //    }
-    //}
 }

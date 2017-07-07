@@ -1,0 +1,32 @@
+﻿@{
+    if (Session["usuario"] != null)
+    {
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout3.cshtml";
+    }
+}
+
+<form class="dataform" style="width: 1100px;" method="get" action="/Home/Reportes">
+    <h3>Reporte estadistico</h3>
+    <p>Seleccionar fechas del periodo</p>
+    <hr />
+    <div class="form-group">
+        <label>
+            Fecha de inicio
+        </label>
+        <input class="form-control" id="fecha1" name="FechaInicio" type="text" >
+    </div>
+    <div class="form-group">
+        <label>
+            Fecha de fin
+        </label>
+        <input class="form-control" id="fecha2" name="FechaFin" type="text" >
+    </div>
+    <div class="form-group" style="text-align: center;">
+        <button class="btn btn-primary" type="submit">Buscar</button>
+    </div>
+  
+</form>

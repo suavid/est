@@ -11,13 +11,19 @@ namespace est.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            if (Session["usuario"] != null)
+            {
+                Response.Redirect("/System/Inicio");
+            }
+
+            ViewBag.Title = "Iniciar sesión";
 
             return View();
         }
 
         public ActionResult Reportes()
         {
+
             ViewBag.Title = "Reportes";
 
             return View();
@@ -27,14 +33,19 @@ namespace est.Controllers
         public string AsistenciaDevocional()
         {
             string respuesta = "";
-
+            //*************************************************
+            string pFechaInicio =  Request["FechaInicio"];
+            string pFechaFin =  Request["FechaFin"];
+            //****************************************************
             var serializer = new JavaScriptSerializer();
             string formato = "dd/MM/yyyy";
 
             DateTime fecha = new DateTime();
 
-            DateTime FechaInicio = DateTime.ParseExact("2017-02-01", "yyyy-MM-dd",System.Globalization.CultureInfo.InvariantCulture);
-            DateTime FechaFin = DateTime.ParseExact("2017-03-31", "yyyy-MM-dd",System.Globalization.CultureInfo.InvariantCulture);
+            //************************
+            DateTime FechaInicio = DateTime.Parse(pFechaInicio);
+            DateTime FechaFin = DateTime.Parse(pFechaFin);
+            //****************************
 
             using (EstadisticaDBDataContext db = new EstadisticaDBDataContext())
             {
@@ -66,6 +77,9 @@ namespace est.Controllers
 
         public string AsistenciaActividad()
         {
+            string pFechaInicio = Request["FechaInicio"];
+            string pFechaFin = Request["FechaFin"];
+
             string respuesta = "";
 
             var serializer = new JavaScriptSerializer();
@@ -73,8 +87,8 @@ namespace est.Controllers
 
             DateTime fecha = new DateTime();
 
-            DateTime FechaInicio = DateTime.ParseExact("2017-02-01", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-            DateTime FechaFin = DateTime.ParseExact("2017-03-31", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime FechaInicio = DateTime.Parse(pFechaInicio);
+            DateTime FechaFin = DateTime.Parse(pFechaFin );
 
             using (EstadisticaDBDataContext db = new EstadisticaDBDataContext())
             {
@@ -106,6 +120,10 @@ namespace est.Controllers
 
         public string AsistenciaVigilia()
         {
+            string pFechaInicio = Request["FechaInicio"];
+            string pFechaFin = Request["FechaFin"];
+
+           
             string respuesta = "";
 
             var serializer = new JavaScriptSerializer();
@@ -113,8 +131,8 @@ namespace est.Controllers
 
             DateTime fecha = new DateTime();
 
-            DateTime FechaInicio = DateTime.ParseExact("2017-02-01", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-            DateTime FechaFin = DateTime.ParseExact("2017-03-31", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime FechaInicio = DateTime.Parse(pFechaInicio );
+            DateTime FechaFin = DateTime.Parse(pFechaFin );
 
             using (EstadisticaDBDataContext db = new EstadisticaDBDataContext())
             {
@@ -144,8 +162,12 @@ namespace est.Controllers
             return respuesta;
         }
 
-        public string AsistenciaEscuela()
+        public string AsistenciaPromedioJovenes()
         {
+            string pFechaInicio = Request["FechaInicio"];
+            string pFechaFin = Request["FechaFin"];
+
+
             string respuesta = "";
 
             var serializer = new JavaScriptSerializer();
@@ -153,8 +175,44 @@ namespace est.Controllers
 
             DateTime fecha = new DateTime();
 
-            DateTime FechaInicio = DateTime.ParseExact("2017-02-01", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-            DateTime FechaFin = DateTime.ParseExact("2017-03-31", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime FechaInicio = DateTime.Parse(pFechaInicio);
+            DateTime FechaFin = DateTime.Parse(pFechaFin);
+
+            using (EstadisticaDBDataContext db = new EstadisticaDBDataContext())
+            {
+
+                var cantidades = db.AsistenciaPromedioJovenes(FechaInicio, FechaFin);
+
+                List<int> cantidadesList = new List<int>();
+                List<string> fechasList = new List<string>();
+
+                foreach (AsistenciaPromedioJovenesResult cant in cantidades)
+                {
+                    cantidadesList.Add(Int32.Parse(cant.Cantidad.ToString()));
+                }
+
+                var JSON = new { cantidades = cantidadesList };
+
+                respuesta = serializer.Serialize(JSON);
+            }
+
+            return respuesta;
+        }
+
+        public string AsistenciaEscuela()
+        {
+            string pFechaInicio = Request["FechaInicio"];
+            string pFechaFin = Request["FechaFin"];
+
+            string respuesta = "";
+
+            var serializer = new JavaScriptSerializer();
+            string formato = "dd/MM/yyyy";
+
+            DateTime fecha = new DateTime();
+
+            DateTime FechaInicio = DateTime.Parse(pFechaInicio );
+            DateTime FechaFin = DateTime.Parse(pFechaFin );
 
             using (EstadisticaDBDataContext db = new EstadisticaDBDataContext())
             {
@@ -186,6 +244,9 @@ namespace est.Controllers
 
         public string AsistenciaPromedio()
         {
+            string pFechaInicio = Request["FechaInicio"];
+            string pFechaFin = Request["FechaFin"];
+
             string respuesta = "";
 
             var serializer = new JavaScriptSerializer();
@@ -193,8 +254,8 @@ namespace est.Controllers
 
             DateTime fecha = new DateTime();
 
-            DateTime FechaInicio = DateTime.ParseExact("2017-02-01", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-            DateTime FechaFin = DateTime.ParseExact("2017-03-31", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime FechaInicio = DateTime.Parse(pFechaInicio );
+            DateTime FechaFin = DateTime.Parse(pFechaFin );
 
             using (EstadisticaDBDataContext db = new EstadisticaDBDataContext())
             {
@@ -219,6 +280,10 @@ namespace est.Controllers
 
         public string PorcentajeSinRetirarse()
         {
+            string pFechaInicio = Request["FechaInicio"];
+            string pFechaFin = Request["FechaFin"];
+
+
             string respuesta = "";
 
             var serializer = new JavaScriptSerializer();
@@ -226,8 +291,8 @@ namespace est.Controllers
 
             DateTime fecha = new DateTime();
 
-            DateTime FechaInicio = DateTime.ParseExact("2017-02-01", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-            DateTime FechaFin = DateTime.ParseExact("2017-03-31", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime FechaInicio = DateTime.Parse(pFechaInicio );
+            DateTime FechaFin = DateTime.Parse(pFechaFin );
 
             using (EstadisticaDBDataContext db = new EstadisticaDBDataContext())
             {

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <style type="text/css">
+        .bgc{
+            background: #e3e3e3;
+        }
+    </style>
+</head>
+<body ng-app="Estadistica" ng-controller="SistemaController as vm" ng-cloak class="bgc">
+    <script type="text/javascript">
+        var patron_dui = new Array(8, 1);
+        var patron_nit = new Array(4, 6, 3, 1);
+        var patron_telefono = new Array(4, 4);
+        var patron_fecha = new Array(4, 2, 2);
+        function mascara(d, sep, pat, nums) {
+            if (d.valant != d.value) {
+                val = d.value
+                largo = val.length
+                val = val.split(sep)
+                val2 = ''
+                for (r = 0; r < val.length; r++) {
+                    val2 += val[r]
+                }
+                if (nums) {
+                    for (z = 0; z < val2.length; z++) {
+                        if (isNaN(val2.charAt(z))) {
+                            letra = new RegExp(val2.charAt(z), "g")
+                            val2 = val2.replace(letra, "")
+                        }
+                    }
+                }
+                val = ''
+                val3 = new Array()
+                for (s = 0; s < pat.length; s++) {
+                    val3[s] = val2.substring(0, pat[s])
+                    val2 = val2.substr(pat[s])
+                }
+                for (q = 0; q < val3.length; q++) {
+                    if (q == 0) {
+                        val = val3[q]
+                    }
+                    else {
+                        if (val3[q] != "") {
+                            val += sep + val3[q]
+                        }
+                    }
+                }
+
+                d.value = val
+                d.valant = val
+            }
+        }
+
+        function VerificarEntero(d) {
+            if (isNaN(d.value)) {
+                d.value = "0";
+            }
+        }
+    </script>
+    <md-toolbar class="md-menu-toolbar">
+        <div layout="row">
+            <div>
+                <h2 class="md-toolbar-tools" ng-click="vm.Redirect('/System/Inicio')">Sistema estadístico</h2>
+                <md-menu-bar>
+                    <md-menu>
+                        <button ng-click="vm.Redirect('/System/DevocionalDominicalReporte')">
+                            Devocional
+                        </button>
+                    </md-menu>
+                    <md-menu>
+                        <button ng-click="vm.Redirect('/System/CultoDeOracionReporte')">
+                            Culto de oración
+                        </button>
+                    </md-menu>
+                    <md-menu>
+                        <button ng-click="vm.Redirect('/System/VigiliaReporte')">
+                            Vigilia
+                        </button>
+                    </md-menu>
+                    <md-menu>
+                        <button ng-click="vm.Redirect('/System/EscuelaBiblicaReporte')">
+                            Escuela bíblica
+                        </button>
+                    </md-menu>
+                    <md-menu>
+                        <button ng-click="vm.Redirect('/System/Inicio')">
+                            Ir al sistema
+                        </button>
+                    </md-menu>
+                </md-menu-bar>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-toolbar md-scroll-shrink>
+        <div class="md-toolbar-tools">{{vm.Title}}</div>
+    </md-toolbar>
+
+    <div>
+        @RenderBody()
+    </div>
+    <script type="text/javascript" src="~/Scripts/moment.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+    <script type="text/javascript" src="~/Scripts/sistema.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+</body>
+</html>

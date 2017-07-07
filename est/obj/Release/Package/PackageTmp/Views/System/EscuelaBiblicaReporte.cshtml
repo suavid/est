@@ -1,0 +1,94 @@
+﻿@{
+    if (Session["usuario"] != null)
+    {
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout3.cshtml";
+    }
+}
+<form role="form" class="dataform" style="background: white; padding: 30px;">
+    <div layout="row" layout-xs="column">
+        <div flex style="padding: 15px;">
+            <md-datepicker ng-model="vm.FechaReporte" md-placeholder="Fecha"></md-datepicker>
+            <br /><br /><br />
+            <md-button class="md-raised md-primary" ng-click="vm.ObtenerReporte('escuelaBiblica')">Buscar</md-button>
+            <br /><br />
+            <table style="width: 100%;text-align: center;">
+                <thead>
+                    <tr style="background-color: #0094ff; color: white;">
+                        <th style="padding: 5px;">
+                            Biblias
+                        </th>
+                        <th>
+                            Capitulos leídos
+                        </th>
+                        <th>
+                            Cumpleaños
+                        </th>
+                        <th>
+                            Presentes
+                        </th>
+
+                        <th>
+                            Visitas
+                        </th>
+
+                        <th>
+                            Personas evangelizadas
+                        </th>
+                        <th>
+                            Maestros
+                        </th>
+                        <th>
+                            Cultos familiares
+                        </th>
+                        <th>
+                            Visitas a hogares
+                        </th>
+                        <th>
+                            Clase
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="registro in vm.ArregloEscuela">
+
+                        <td>
+                            {{registro.Biblias}}
+                        </td>
+                        <td>
+                            {{registro.CapitulosLeidos}}
+                        </td>
+                        <td>
+                            {{registro.Cumpleanos}}
+                        </td>
+                        <td>
+                            {{registro.Presentes}}
+                        </td>
+                        <td>
+                            {{registro.Visitas}}
+                        </td>
+                        <td>
+                            {{registro.PersonasEvangelizadas}}
+                        </td>
+                        <td>
+                            {{registro.Maestros}}
+                        </td>
+                        <td>
+                            {{registro.CultosFamiliares}}
+                        </td>
+                        <td>
+                            {{registro.VisitasHogares}}
+                        </td>
+                        <td>
+                            {{registro.Clase}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>

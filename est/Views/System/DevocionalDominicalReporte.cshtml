@@ -1,0 +1,105 @@
+﻿@{
+    if (Session["usuario"] != null)
+    {
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout3.cshtml";
+    }
+}
+<form role="form" class="dataform" style="background: white; padding: 30px;">
+    <div layout="row" layout-xs="column">
+        <div flex style="padding: 15px;">
+            <md-datepicker ng-model="vm.FechaReporte" md-placeholder="Fecha"></md-datepicker>
+            <br /><br /><br />
+            <md-button class="md-raised md-primary" ng-click="vm.ObtenerReporte('devocional')">Buscar</md-button>
+            <br /><br />
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Sala cuna
+                </label>
+                <input class="form-control" type="text" name="SalaCuna" ng-model="vm.DevocionalDominicalReporte.SalaCuna" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Parvulos
+                </label>
+                <input class="form-control" type="text" name="Parvulos" ng-model="vm.DevocionalDominicalReporte.Parvulos" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+
+        </div>
+        <div flex style="padding: 15px;">
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Principiantes
+                </label>
+                <input class="form-control" type="text" name="Principiantes" ng-model="vm.DevocionalDominicalReporte.Principiantes" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Primarios
+                </label>
+                <input class="form-control" type="text" name="Primarios" ng-model="vm.DevocionalDominicalReporte.Primarios" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Jardin infantil
+                </label>
+                <input class="form-control" type="text" name="JardinInfantil" ng-model="vm.DevocionalDominicalReporte.JardinInfantil" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Adultos (ya sea hombres, mujeres, jovenes y/o adolescentes) DENTRO DEL TEMPLO
+                </label>
+                <input class="form-control" type="text" name="AdultosEnTemplo" ng-model="vm.DevocionalDominicalReporte.AdultosEnTemplo" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+        </div>
+
+        <div flex style="padding: 15px;">
+
+            <md-input-container class="md-block" flex-gt-xs>
+
+                <label>
+                    Ujieres desarrollando su ministerio
+                </label>
+                <input class="form-control" type="text" name="Ujieres" ng-model="vm.DevocionalDominicalReporte.Ujieres" onkeyup="VerificarEntero(this);" disabled>
+
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>
+                    Adultos (ya sea hombres, mujeres, jovenes y/o adolescentes) FUERA DEL TEMPLO, Autorizadas y No Autorizadas
+                </label>
+                <input class="form-control" type="text" name="AdultosFueraDelTemplo" ng-model="vm.DevocionalDominicalReporte.AdultosFueraDelTemplo" onkeyup="VerificarEntero(this);" disabled>
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>
+                    Comentarios y observaciones
+                </label>
+                <textarea class="form-control" name="Comentarios" ng-model="vm.DevocionalDominicalReporte.Comentarios" disabled></textarea>
+
+            </md-input-container>
+        </div>
+    </div>
+</form>
+
