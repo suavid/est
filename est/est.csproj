@@ -271,6 +271,7 @@
     <Content Include="Views\Shared\_Layout3.cshtml" />
     <Content Include="Views\System\ReporteGrafico.cshtml" />
     <Content Include="Views\System\CensoFoto.cshtml" />
+    <Content Include="Views\Shared\_Layout4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

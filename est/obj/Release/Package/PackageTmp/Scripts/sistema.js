@@ -5,7 +5,7 @@ var RegistroAcademicoApp = angular.module('Estadistica');
 RegistroAcademicoApp.controller('SistemaController', SistemaController);
 
 // Definición del controlador del sistema
-function SistemaController($http, $mdDialog) {
+function SistemaController($http) {
     var vm = this;
 
     // Definicion de campos requeridos
@@ -23,6 +23,8 @@ function SistemaController($http, $mdDialog) {
     vm.searchText2 = "";
 
     vm.FechaReporte = new Date();
+    vm.FechaInicio = new Date();
+    vm.FechaFin = new Date();
 
     vm.Usuario = "";
     vm.Clave = "";
@@ -80,6 +82,9 @@ function SistemaController($http, $mdDialog) {
                 break;
             case "CensoReporte":
                 vm.Title = "Censo";
+                break;
+            case "ReporteGrafico":
+                vm.Title = "Reporte estadístico";
                 break;
         }
     }
@@ -204,6 +209,7 @@ function SistemaController($http, $mdDialog) {
     vm.ValidarUsuario = ValidarUsuario;
     vm.ObtenerReporte = ObtenerReporte;
     vm.ReportePersona = ReportePersona;
+    vm.CargarReporte = CargarReporte;
 
     //// Funcionalidad para eliminar un registro
     //vm.DeleteItem = DeleteItem;
@@ -236,6 +242,12 @@ function SistemaController($http, $mdDialog) {
         }).then(function (response) {
             vm.ListadoProfesiones = response.data;
         });
+    }
+
+    function CargarReporte() {
+        var FechaInicio = vm.FechaInicio.getDate() + '+' + (vm.FechaInicio.getMonth() + 1) + '+' + vm.FechaInicio.getFullYear();
+        var FechaFin = vm.FechaFin.getDate() + '+' + (vm.FechaFin.getMonth() + 1) + '+' + vm.FechaFin.getFullYear();
+        location.href = '/Home/Reportes?FechaInicio=' + FechaInicio + '&FechaFin=' + FechaFin;
     }
 
     function selectedItemChange(item) {
@@ -490,16 +502,7 @@ function SistemaController($http, $mdDialog) {
             }).then(function (response) {
 
                 if (response.data.id) {
-                    $mdDialog.show(
-                      $mdDialog.alert()
-                        .parent(angular.element(document.querySelector('#popupContainer')))
-                        .clickOutsideToClose(true)
-                        .title('ID de persona')
-                        .textContent('El ID de la persona es: ' + response.data.id)
-                        .ariaLabel('ID Dialog')
-                        .ok('Entendido!')
-                        .targetEvent(null)
-                    );
+                    alert("ID: "+response.data.id);
                 }
                 // Reestablece todas las variables
                 RestablecerVariables(); 

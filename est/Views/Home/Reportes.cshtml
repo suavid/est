@@ -1,6 +1,10 @@
 ﻿
 @{
     ViewBag.Title = "Reportes";
+
+
+   Layout = "~/Views/Shared/_Layout4.cshtml";
+ 
 }
 <style type="text/css">
     body{
@@ -399,11 +403,11 @@
             var chart = new Highcharts.Chart(OpcionesPromedio);
         });
 
-        $.post(urlPromedioJovenes, function (data) {
-            data = JSON.parse(data);
-            OpcionesPromedioJovenes.series[0].data = data.cantidades;
-            var chart = new Highcharts.Chart(OpcionesPromedioJovenes);
-        });
+        //$.post(urlPromedioJovenes, function (data) {
+        //    data = JSON.parse(data);
+        //    OpcionesPromedioJovenes.series[0].data = data.cantidades;
+        //    var chart = new Highcharts.Chart(OpcionesPromedioJovenes);
+        //});
 
         $.post(urlPorcentajeSinRetirarse, function (data) {
             data = JSON.parse(data);
@@ -429,7 +433,7 @@
 
     <div id="container3" style="width: 610px; height: 400px; margin: 0 auto"></div>
 
-    <div id="container6" style="width: 610px; height: 400px; margin: 0 auto"></div>
+    @*<div id="container6" style="width: 610px; height: 400px; margin: 0 auto"></div>*@
 
     <div id="container5" style="width: 610px; height: 400px; margin: 0 auto"></div>
 

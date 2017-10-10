@@ -31,7 +31,7 @@ namespace est.Controllers
             if (Session["usuario"] == null)
             {
                 ViewBag.Title = "Reporte estadistico";
-                return View("ReporteGrafico2");
+                return View();
 
             }
             else

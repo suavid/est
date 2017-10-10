@@ -23,6 +23,8 @@ function SistemaController($http) {
     vm.searchText2 = "";
 
     vm.FechaReporte = new Date();
+    vm.FechaInicio = new Date();
+    vm.FechaFin = new Date();
 
     vm.Usuario = "";
     vm.Clave = "";
@@ -80,6 +82,9 @@ function SistemaController($http) {
                 break;
             case "CensoReporte":
                 vm.Title = "Censo";
+                break;
+            case "ReporteGrafico":
+                vm.Title = "Reporte estadístico";
                 break;
         }
     }
@@ -204,6 +209,7 @@ function SistemaController($http) {
     vm.ValidarUsuario = ValidarUsuario;
     vm.ObtenerReporte = ObtenerReporte;
     vm.ReportePersona = ReportePersona;
+    vm.CargarReporte = CargarReporte;
 
     //// Funcionalidad para eliminar un registro
     //vm.DeleteItem = DeleteItem;
@@ -236,6 +242,12 @@ function SistemaController($http) {
         }).then(function (response) {
             vm.ListadoProfesiones = response.data;
         });
+    }
+
+    function CargarReporte() {
+        var FechaInicio = vm.FechaInicio.getDate() + '+' + (vm.FechaInicio.getMonth() + 1) + '+' + vm.FechaInicio.getFullYear();
+        var FechaFin = vm.FechaFin.getDate() + '+' + (vm.FechaFin.getMonth() + 1) + '+' + vm.FechaFin.getFullYear();
+        location.href = '/Home/Reportes?FechaInicio=' + FechaInicio + '&FechaFin=' + FechaFin;
     }
 
     function selectedItemChange(item) {
