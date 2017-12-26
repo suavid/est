@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Estadistica" Class="EstadisticaDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-AN6UI64;Initial Catalog=Estadistica;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EstadisticaConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-9BHLKBA;Initial Catalog=Estadistica;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EstadisticaConnectionString1" Provider="System.Data.SqlClient" />
   <Function Name="dbo.AsistenciaActividad" Method="AsistenciaActividad">
     <Parameter Name="FechaInicio" Parameter="fechaInicio" Type="System.DateTime" DbType="Date" />
     <Parameter Name="FechaFin" Parameter="fechaFin" Type="System.DateTime" DbType="Date" />
@@ -195,13 +195,6 @@
     <Parameter Name="EsDocente" Parameter="esDocente" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.ValidarUsuario" Method="ValidarUsuario">
-    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="NVarChar(550)" />
-    <ElementType Name="ValidarUsuarioResult">
-      <Column Name="NombreUsuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.ReporteActividad" Method="ReporteActividad">
     <Parameter Name="Fecha" Parameter="fecha" Type="System.DateTime" DbType="Date" />
     <ElementType Name="ReporteActividadResult">
@@ -348,5 +341,13 @@
     <Parameter Name="ProfesionOficio" Parameter="profesionOficio" Type="System.String" DbType="VarChar(40)" />
     <Parameter Name="Sexo" Parameter="sexo" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ValidarUsuario" Method="ValidarUsuario">
+    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="NVarChar(550)" />
+    <ElementType Name="ValidarUsuarioResult">
+      <Column Name="NombreUsuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccesoCenso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>

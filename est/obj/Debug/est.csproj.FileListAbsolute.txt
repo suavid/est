@@ -82,3 +82,4 @@ C:\wamp64\www\est\est\bin\es\System.Web.WebPages.Razor.resources.dll
 C:\wamp64\www\est\est\obj\Debug\est.dll
 C:\wamp64\www\est\est\obj\Debug\est.pdb
 C:\wamp64\www\est\est\obj\Debug\est.csprojResolveAssemblyReference.cache
+C:\wamp64\www\est\est\obj\Debug\est.csproj.CoreCompileInputs.cache

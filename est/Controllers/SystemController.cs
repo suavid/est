@@ -17,7 +17,7 @@ namespace est.Controllers
         // GET: System
         public ActionResult Inicio()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -28,7 +28,7 @@ namespace est.Controllers
         public ActionResult ReporteGrafico()
         {
 
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 ViewBag.Title = "Reporte estadistico";
                 return View();
@@ -40,9 +40,6 @@ namespace est.Controllers
 
                 return View();
             }
-
-
-
         }
 
         public void CerrarSesion()
@@ -59,7 +56,7 @@ namespace est.Controllers
 
         public ActionResult Censo()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -71,8 +68,9 @@ namespace est.Controllers
 
         public ActionResult CensoFoto()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
+                
                 Response.Redirect("/Home/Index");
             }
 
@@ -96,7 +94,7 @@ namespace est.Controllers
         public ActionResult DevocionalDominical()
         {
 
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -116,7 +114,7 @@ namespace est.Controllers
         public ActionResult Vigilia()
         {
 
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -135,7 +133,7 @@ namespace est.Controllers
 
         public ActionResult CultoDeOracion()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -155,7 +153,7 @@ namespace est.Controllers
 
         public ActionResult ActividadJuvenil()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -176,7 +174,7 @@ namespace est.Controllers
 
         public ActionResult EscuelaBiblica()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -222,7 +220,7 @@ namespace est.Controllers
 
         public string IngresarDevocional()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -266,7 +264,7 @@ namespace est.Controllers
 
         public string IngresarCultoDeOracion()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -310,7 +308,7 @@ namespace est.Controllers
 
         public string IngresarActividadJuvenil()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -355,7 +353,7 @@ namespace est.Controllers
 
         public string IngresarVigilia()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -399,7 +397,7 @@ namespace est.Controllers
 
         public string IngresarEscuela()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -446,7 +444,7 @@ namespace est.Controllers
 
         public string IngresarPersona()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -496,7 +494,7 @@ namespace est.Controllers
 
         public string ObtenerEstadoCivil()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -525,7 +523,7 @@ namespace est.Controllers
 
         public string ObtenerMembresia()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -554,7 +552,7 @@ namespace est.Controllers
 
         public string ObtenerProfesiones()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -585,7 +583,7 @@ namespace est.Controllers
 
         public string ObtenerSectores()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -616,7 +614,7 @@ namespace est.Controllers
 
         public string ObtenerMinisterio()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -645,7 +643,7 @@ namespace est.Controllers
 
         public string ObtenerSexo()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }
@@ -689,6 +687,7 @@ namespace est.Controllers
             foreach (ValidarUsuarioResult res in Results)
             {
                 Session["usuario"] = res.NombreUsuario;
+                Session["censo"] = res.AccesoCenso;
             }
 
             if (Session["usuario"] != null)
@@ -707,7 +706,7 @@ namespace est.Controllers
 
         public string ObtenerClase()
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || Int32.Parse(Session["censo"].ToString()) == 1)
             {
                 Response.Redirect("/Home/Index");
             }

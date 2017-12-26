@@ -33,7 +33,7 @@ namespace est
     #endregion
 		
 		public EstadisticaDBDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["EstadisticaConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["EstadisticaConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -223,13 +223,6 @@ namespace est
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ValidarUsuario")]
-		public ISingleResult<ValidarUsuarioResult> ValidarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreUsuario", DbType="VarChar(50)")] string nombreUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clave", DbType="NVarChar(550)")] string clave)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombreUsuario, clave);
-			return ((ISingleResult<ValidarUsuarioResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ReporteActividad")]
 		public ISingleResult<ReporteActividadResult> ReporteActividad([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fecha", DbType="Date")] System.Nullable<System.DateTime> fecha)
 		{
@@ -298,6 +291,13 @@ namespace est
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), responsable, nombre, apellido, fechaNacimiento, dui, direccion, sector, estadoCivil, miembro, celular, telefono, ministerio, profesionOficio, sexo);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ValidarUsuario")]
+		public ISingleResult<ValidarUsuarioResult> ValidarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NombreUsuario", DbType="VarChar(50)")] string nombreUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clave", DbType="NVarChar(550)")] string clave)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombreUsuario, clave);
+			return ((ISingleResult<ValidarUsuarioResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -846,32 +846,6 @@ namespace est
 				if ((this._Nombre != value))
 				{
 					this._Nombre = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ValidarUsuarioResult
-	{
-		
-		private string _NombreUsuario;
-		
-		public ValidarUsuarioResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string NombreUsuario
-		{
-			get
-			{
-				return this._NombreUsuario;
-			}
-			set
-			{
-				if ((this._NombreUsuario != value))
-				{
-					this._NombreUsuario = value;
 				}
 			}
 		}
@@ -2456,6 +2430,50 @@ namespace est
 				if ((this._Sexo != value))
 				{
 					this._Sexo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ValidarUsuarioResult
+	{
+		
+		private string _NombreUsuario;
+		
+		private int _AccesoCenso;
+		
+		public ValidarUsuarioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NombreUsuario
+		{
+			get
+			{
+				return this._NombreUsuario;
+			}
+			set
+			{
+				if ((this._NombreUsuario != value))
+				{
+					this._NombreUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccesoCenso", DbType="Int NOT NULL")]
+		public int AccesoCenso
+		{
+			get
+			{
+				return this._AccesoCenso;
+			}
+			set
+			{
+				if ((this._AccesoCenso != value))
+				{
+					this._AccesoCenso = value;
 				}
 			}
 		}

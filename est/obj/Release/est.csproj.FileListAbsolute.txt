@@ -40,3 +40,4 @@ C:\wamp64\www\est\est\bin\es\System.Web.WebPages.Razor.resources.dll
 C:\wamp64\www\est\est\obj\Release\est.csprojResolveAssemblyReference.cache
 C:\wamp64\www\est\est\obj\Release\est.dll
 C:\wamp64\www\est\est\obj\Release\est.pdb
+C:\wamp64\www\est\est\obj\Release\est.csproj.CoreCompileInputs.cache
