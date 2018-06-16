@@ -5,7 +5,7 @@ var RegistroAcademicoApp = angular.module('Estadistica');
 RegistroAcademicoApp.controller('SistemaController', SistemaController);
 
 // Definición del controlador del sistema
-function SistemaController($http) {
+function SistemaController($http, $mdDialog) {
     var vm = this;
 
     // Definicion de campos requeridos
@@ -226,6 +226,9 @@ function SistemaController($http) {
     vm.selectedItemChange2 = selectedItemChange2;
     vm.searchTextChange2 = searchTextChange2;
 
+    vm.MostrarResumenPersona = MostrarResumenPersona;
+    vm.Registro = null;
+
     vm.ListadoProfesiones = [];
     vm.ListadoSectores = [];
 
@@ -293,7 +296,12 @@ function SistemaController($http) {
 
   
 
-    function ReportePersona() {
+    function ReportePersona(OPTION) {
+        vm.Registro = null;
+        if (OPTION == "VERCUMPLES") {
+            vm.Cadena = OPTION;
+        }
+
         $http.post('/System/ReportePersona', { Cadena: vm.Cadena }, {
             headers: {
                 "Content-Type": 'application/x-www-form-urlencoded;charset=utf-8'
@@ -304,10 +312,14 @@ function SistemaController($http) {
                     : data;
             }]
         }).then(function (response) {
-
             vm.ArregloPersona = response.data;
         });
     }
+
+    function MostrarResumenPersona(registro) {
+        registro.FechanacimientoActual.replace(" 00:00:00", "");
+        vm.Registro = registro;
+    };
 
     function ObtenerReporte(tipoReporte) {
 

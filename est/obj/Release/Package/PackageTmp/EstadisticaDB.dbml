@@ -308,23 +308,6 @@
       <Column Name="Sector" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.ReportePersona" Method="ReportePersona">
-    <Parameter Name="CadenaBusqueda" Parameter="cadenaBusqueda" Type="System.String" DbType="VarChar(MAX)" />
-    <ElementType Name="ReportePersonaResult">
-      <Column Name="Nombre" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
-      <Column Name="Apellido" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
-      <Column Name="FechaNacimiento" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Dui" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Direccion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Sector" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="EstadoCivil" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="Miembro" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Celular" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="Telefono" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="ProfesionOficio" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="Sexo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.IngresarPersona" Method="IngresarPersona">
     <Parameter Name="Responsable" Parameter="responsable" Type="System.Int32" DbType="Int" />
     <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NChar(100)" />
@@ -348,6 +331,24 @@
     <ElementType Name="ValidarUsuarioResult">
       <Column Name="NombreUsuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="AccesoCenso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ReportePersona" Method="ReportePersona">
+    <Parameter Name="CadenaBusqueda" Parameter="cadenaBusqueda" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="ReportePersonaResult">
+      <Column Name="Nombre" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="FechaNacimiento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FechaNacimientoActual" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Dui" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Sector" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EstadoCivil" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Miembro" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Celular" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ProfesionOficio" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Sexo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

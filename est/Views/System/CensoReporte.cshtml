@@ -11,53 +11,79 @@
 }
 
 
- <form role="form" class="dataform" style="background: white; padding: 30px;">
-     <div layout="row" layout-xs="column">
-         <div flex style="padding: 15px;">
-             <md-input-container class="md-block" flex-gt-xs>
+<form role="form" class="dataform" style="background: white; padding: 30px;">
+    <div layout="row" layout-xs="column">
+        <div flex style="padding: 15px;">
+            <md-input-container class="md-block" flex-gt-xs>
 
-                 <label>
-                     Término de búsqueda
-                 </label>
-                 <input class="form-control" type="text" id="fecha" name="Fecha" ng-model="vm.Cadena" required>
+                <label>
+                    Término de búsqueda
+                </label>
+                <input class="form-control" type="text" id="fecha" name="Fecha" ng-model="vm.Cadena" required>
 
-             </md-input-container>
-             <md-button class="md-raised md-primary" ng-click="vm.ReportePersona()">Buscar</md-button>
-             <br /><br />
-             <table style="width: 100%; text-align:center;">
-                 <thead>
-                     <tr style="background-color: #0094ff; color: white;">
-                         <th>
-                             Nombre
-                         </th>
-                         <th>
-                             Apellido
-                         </th>
-                         <th>
-                             Celular
-                         </th>
-                         <th>
-                             Teléfono
-                         </th>
-                     </tr>
-                 </thead>
-                 <tbody>
-                     <tr ng-repeat="registro in vm.ArregloPersona">
-                         <td>
-                             {{registro.Nombre}}
-                         </td>
-                         <td>
-                             {{registro.Apellido}}
-                         </td>
-                         <td>
-                             {{registro.Celular}}
-                         </td>
-                         <td>
-                             {{registro.Telefono}}
-                         </td>
-                     </tr>
-                 </tbody>
-             </table>
-         </div>
-     </div>
+            </md-input-container>
+            <md-button class="md-raised md-primary" ng-click="vm.ReportePersona()">Buscar</md-button>
+            <md-button class="md-raised md-primary" ng-click="vm.ReportePersona('VERCUMPLES')">Ver cumpleañeros del mes</md-button>
+            <br /><br />
+            <p>Hacer click en el nombre para obtener más detalles</p>
+            <table style="width: 100%; text-align:center;">
+                <thead>
+                    <tr style="background-color: #0094ff; color: white;">
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Apellido
+                        </th>
+                        <th>
+                            Celular
+                        </th>
+                        <th>
+                            Teléfono
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="registro in vm.ArregloPersona">
+                        <td>
+                            <a href="javascript:void(0)" ng-click="vm.MostrarResumenPersona(registro)">{{registro.Nombre}}</a>
+                        </td>
+                        <td>
+                            {{registro.Apellido}}
+                        </td>
+                        <td>
+                            {{registro.Celular}}
+                        </td>
+                        <td>
+                            {{registro.Telefono}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <md-card ng-show="vm.Registro" style="padding:50px;">
+        <p>
+            <strong>Nombre Completo: </strong> {{vm.Registro.Nombre}} {{vm.Registro.Apellido}}
+        </p>
+        <p>
+            <strong>Fecha Nacimiento: </strong> {{vm.Registro.FechanacimientoActual}}
+        </p>
+        <p>
+            <strong>Edad: </strong> {{vm.Registro.FechaNacimiento}}
+        </p>
+        <p>
+            <strong>Dui: </strong>{{vm.Registro.Dui}}
+        </p>
+        <p><strong>Dirección: </strong>{{vm.Registro.Direccion}}</p>
+        <p><strong>Sector: </strong>{{vm.Registro.Sector}}</p>
+        <p><strong>Estado civil: </strong>{{vm.Registro.EstadoCivil}}</p>
+        <p><strong>Miembro: </strong>{{vm.Registro.Miembro}}</p>
+        <p><strong>Celular: </strong>{{vm.Registro.Celular}}</p>
+        <p><strong>Teléfono: </strong>{{vm.Registro.Telefono}}</p>
+        <p><strong>Profesión: </strong>{{vm.Registro.ProfesionOficio}}</p>
+        <p><strong>Sexo: </strong>{{vm.Registro.Sexo}}</p>
+    </md-card>
 </form>
+
+

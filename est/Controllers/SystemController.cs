@@ -750,28 +750,18 @@ namespace est.Controllers
             {
                 Result.Add(new
                 {
-                    Nombre = res.Nombre
-,
-                    Apellido = res.Apellido
-,
-                    FechaNacimiento = res.FechaNacimiento
-,
-                    Dui = res.Dui
-,
-                    Direccion = res.Direccion
-,
-                    Sector = res.Sector
-,
-                    EstadoCivil = res.EstadoCivil
-,
-                    Miembro = res.Miembro
-,
-                    Celular = res.Celular
-,
-                    Telefono = res.Telefono
-,
-                    ProfesionOficio = res.ProfesionOficio
-,
+                    Nombre = res.Nombre,
+                    Apellido = res.Apellido,
+                    FechaNacimiento = res.FechaNacimiento,
+                    FechanacimientoActual = res.FechaNacimientoActual.ToString(),
+                    Dui = res.Dui,
+                    Direccion = res.Direccion,
+                    Sector = res.Sector,
+                    EstadoCivil = res.EstadoCivil,
+                    Miembro = res.Miembro,
+                    Celular = res.Celular,
+                    Telefono = res.Telefono,
+                    ProfesionOficio = res.ProfesionOficio,
                     Sexo = res.Sexo
                 });
             }

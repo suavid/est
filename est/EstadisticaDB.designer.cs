@@ -279,13 +279,6 @@ namespace est
 			return ((ISingleResult<ObtenerSectoresResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ReportePersona")]
-		public ISingleResult<ReportePersonaResult> ReportePersona([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CadenaBusqueda", DbType="VarChar(MAX)")] string cadenaBusqueda)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cadenaBusqueda);
-			return ((ISingleResult<ReportePersonaResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.IngresarPersona")]
 		public int IngresarPersona([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Responsable", DbType="Int")] System.Nullable<int> responsable, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nombre", DbType="NChar(100)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Apellido", DbType="NChar(100)")] string apellido, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaNacimiento", DbType="Date")] System.Nullable<System.DateTime> fechaNacimiento, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dui", DbType="VarChar(10)")] string dui, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Direccion", DbType="VarChar(100)")] string direccion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sector", DbType="VarChar(50)")] string sector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EstadoCivil", DbType="Int")] System.Nullable<int> estadoCivil, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Miembro", DbType="Int")] System.Nullable<int> miembro, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Celular", DbType="VarChar(15)")] string celular, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefono", DbType="VarChar(15)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ministerio", DbType="VarChar(MAX)")] string ministerio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProfesionOficio", DbType="VarChar(40)")] string profesionOficio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sexo", DbType="Int")] System.Nullable<int> sexo)
 		{
@@ -298,6 +291,13 @@ namespace est
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombreUsuario, clave);
 			return ((ISingleResult<ValidarUsuarioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ReportePersona")]
+		public ISingleResult<ReportePersonaResult> ReportePersona([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CadenaBusqueda", DbType="VarChar(MAX)")] string cadenaBusqueda)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cadenaBusqueda);
+			return ((ISingleResult<ReportePersonaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2211,6 +2211,50 @@ namespace est
 		}
 	}
 	
+	public partial class ValidarUsuarioResult
+	{
+		
+		private string _NombreUsuario;
+		
+		private int _AccesoCenso;
+		
+		public ValidarUsuarioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NombreUsuario
+		{
+			get
+			{
+				return this._NombreUsuario;
+			}
+			set
+			{
+				if ((this._NombreUsuario != value))
+				{
+					this._NombreUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccesoCenso", DbType="Int NOT NULL")]
+		public int AccesoCenso
+		{
+			get
+			{
+				return this._AccesoCenso;
+			}
+			set
+			{
+				if ((this._AccesoCenso != value))
+				{
+					this._AccesoCenso = value;
+				}
+			}
+		}
+	}
+	
 	public partial class ReportePersonaResult
 	{
 		
@@ -2219,6 +2263,8 @@ namespace est
 		private string _Apellido;
 		
 		private System.Nullable<int> _FechaNacimiento;
+		
+		private System.Nullable<System.DateTime> _FechaNacimientoActual;
 		
 		private string _Dui;
 		
@@ -2286,6 +2332,22 @@ namespace est
 				if ((this._FechaNacimiento != value))
 				{
 					this._FechaNacimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaNacimientoActual", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaNacimientoActual
+		{
+			get
+			{
+				return this._FechaNacimientoActual;
+			}
+			set
+			{
+				if ((this._FechaNacimientoActual != value))
+				{
+					this._FechaNacimientoActual = value;
 				}
 			}
 		}
@@ -2430,50 +2492,6 @@ namespace est
 				if ((this._Sexo != value))
 				{
 					this._Sexo = value;
-				}
-			}
-		}
-	}
-	
-	public partial class ValidarUsuarioResult
-	{
-		
-		private string _NombreUsuario;
-		
-		private int _AccesoCenso;
-		
-		public ValidarUsuarioResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string NombreUsuario
-		{
-			get
-			{
-				return this._NombreUsuario;
-			}
-			set
-			{
-				if ((this._NombreUsuario != value))
-				{
-					this._NombreUsuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccesoCenso", DbType="Int NOT NULL")]
-		public int AccesoCenso
-		{
-			get
-			{
-				return this._AccesoCenso;
-			}
-			set
-			{
-				if ((this._AccesoCenso != value))
-				{
-					this._AccesoCenso = value;
 				}
 			}
 		}

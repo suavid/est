@@ -110,10 +110,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/12/2017 17:47:42</publishTime>
     </File>
     <File Include="bin/est.dll">
-      <publishTime>12/06/2017 20:37:38</publishTime>
+      <publishTime>04/07/2018 21:16:39</publishTime>
     </File>
     <File Include="bin/est.pdb">
-      <publishTime>12/06/2017 20:37:38</publishTime>
+      <publishTime>04/07/2018 21:16:39</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>10/12/2017 17:47:42</publishTime>
@@ -167,7 +167,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/12/2017 17:47:42</publishTime>
     </File>
     <File Include="EstadisticaDB.dbml">
-      <publishTime>12/06/2017 20:14:01</publishTime>
+      <publishTime>04/07/2018 20:05:08</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>10/12/2017 17:47:42</publishTime>
@@ -221,7 +221,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/12/2017 17:47:42</publishTime>
     </File>
     <File Include="Scripts/sistema.js">
-      <publishTime>10/12/2017 17:47:42</publishTime>
+      <publishTime>04/07/2018 21:15:56</publishTime>
     </File>
     <File Include="Scripts/ui/AUTHORS.txt">
       <publishTime>10/12/2017 17:47:42</publishTime>
@@ -284,7 +284,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/12/2017 17:47:42</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/12/2017 17:47:42</publishTime>
+      <publishTime>04/07/2018 20:50:50</publishTime>
     </File>
     <File Include="Views/Home/Reportes.cshtml">
       <publishTime>10/12/2017 17:47:42</publishTime>
@@ -317,19 +317,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/12/2017 17:47:42</publishTime>
     </File>
     <File Include="Views/System/CensoReporte.cshtml">
-      <publishTime>10/12/2017 17:47:42</publishTime>
+      <publishTime>04/07/2018 21:07:52</publishTime>
     </File>
     <File Include="Views/System/CultoDeOracion.cshtml">
       <publishTime>10/12/2017 17:47:42</publishTime>
     </File>
     <File Include="Views/System/CultoDeOracionReporte.cshtml">
-      <publishTime>12/06/2017 19:51:59</publishTime>
+      <publishTime>06/12/2017 19:51:59</publishTime>
     </File>
     <File Include="Views/System/DevocionalDominical.cshtml">
       <publishTime>10/12/2017 17:47:42</publishTime>
     </File>
     <File Include="Views/System/DevocionalDominicalReporte.cshtml">
-      <publishTime>06/12/2017 19:11:51</publishTime>
+      <publishTime>12/06/2017 19:11:51</publishTime>
     </File>
     <File Include="Views/System/EscuelaBiblica.cshtml">
       <publishTime>10/12/2017 17:47:42</publishTime>
@@ -350,7 +350,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/12/2017 17:47:42</publishTime>
     </File>
     <File Include="Views/System/VigiliaReporte.cshtml">
-      <publishTime>12/06/2017 19:52:36</publishTime>
+      <publishTime>06/12/2017 19:52:36</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>10/12/2017 17:47:42</publishTime>
@@ -359,7 +359,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/12/2017 17:47:42</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/06/2017 20:38:02</publishTime>
+      <publishTime>06/12/2017 20:38:02</publishTime>
     </File>
   </ItemGroup>
 </Project>
